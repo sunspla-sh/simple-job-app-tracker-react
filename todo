@@ -1,0 +1,23 @@
+[x] add preinstall script to package.json to force usage of pnpm
+[x] setup turborepo monorepo
+[x] setup apps directory
+  [x] setup (web) web app - react
+  [x] setup (crx) chrome extension - react
+  [x] setup (api) web server - express
+[x] setup packages directory
+  [x] setup react-ui
+  [x] setup react-auth
+[x] api - auth routes with jwt
+[x] api - prisma with sqlite3
+[x] api - reset sqlite database, prisma migrate and generate client
+[] api - request password reset route
+[] api - password reset route
+[] api - jobapp delete route
+[] api - jobapp edit route
+[x] react-auth - AuthProvider component
+[x] react-auth - SignupForm component
+[x] react-auth - LoginForm component
+[] web - job application report table
+[] chron - for sending daily text/telegram/whatsapp/slack/discord/email message report
+[] custom rollup config for chrome-extension?
+[] fly.io deployment config

@@ -1,5 +1,5 @@
 import { useState, useContext } from 'react';
-import { AuthContext } from './AuthProvider';
+import { AuthContext } from '../contexts/AuthContext';
 
 export const SignupForm = ({ onSubmit }) => {
 

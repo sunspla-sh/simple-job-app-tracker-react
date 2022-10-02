@@ -3,14 +3,10 @@ import { LoginForm } from 'react-auth';
 
 export const LoginPage = ({ signupPath }) => {
 
-  const onSubmit = async ({ email, password }) => {
-    console.log('log in: ', email, password);
-  };
-
   return (
     <div>
       <h1>Login</h1>
-      <LoginForm onSubmit={onSubmit} />
+      <LoginForm />
       <Link
         to={signupPath}
       >

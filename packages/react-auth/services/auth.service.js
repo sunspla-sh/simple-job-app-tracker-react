@@ -17,18 +17,36 @@ export class AuthService {
         body: JSON.stringify({ email, password })
       });
       const json = await res.json();
+      //check for errors because fetch doesn't automatically throw an error with a 400 or 500 response code
       if(json.error){
         throw new Error(json.error.message);
       }
       const authToken = json.authToken;
       return authToken;
     } catch (err) {
-      return err;
+      throw err;
     }
   }
 
-  async logIn(body){
-
+  async logIn({ email, password }){
+    try {
+      const res = await fetch(this.logInUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email, password })
+      });
+      const json = await res.json();
+      //check for errors because fetch doesn't automatically throw an error with a 400 or 500 response code
+      if(json.error){
+        throw new Error(json.error.message);
+      }
+      const authToken = json.authToken;
+      return authToken;
+    } catch (err) {
+      throw err;
+    }
   }
 
 }

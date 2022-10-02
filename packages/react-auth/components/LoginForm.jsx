@@ -1,6 +1,10 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 
-export const LoginForm = ({ onSubmit }) => {
+import { AuthContext } from '../contexts/AuthContext';
+
+export const LoginForm = () => {
+
+  const { authService } = useContext(AuthContext);
 
   const [state, setState] = useState({ email: '', password: '', error: ''});
 
@@ -13,7 +17,8 @@ export const LoginForm = ({ onSubmit }) => {
     e.preventDefault();
     try {
       const { email, password } = state;
-      await onSubmit({ email, password });
+      const authToken = await authService.logIn({ email, password });
+      console.log('login success:', authToken);
     } catch (err) {
       setState({
         ...state,

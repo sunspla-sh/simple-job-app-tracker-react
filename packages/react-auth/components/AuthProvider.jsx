@@ -1,8 +1,8 @@
-import { useState, useEffect, createContext } from 'react';
+import { useState } from 'react';
+
+import { AuthContext } from '../contexts/AuthContext';
 
 import { AuthService } from '../services/auth.service';
-
-export const AuthContext = createContext();
 
 export const AuthProvider = ({ children, config }) => {
 
@@ -13,7 +13,6 @@ export const AuthProvider = ({ children, config }) => {
     logInUrl,
     verifyUrl
   });
-  console.log(authService);
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);

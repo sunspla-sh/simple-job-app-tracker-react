@@ -12,7 +12,8 @@ export const LoginForm = ({ onSubmit }) => {
   const logIn = async e => {
     e.preventDefault();
     try {
-      await onSubmit(state);
+      const { email, password } = state;
+      await onSubmit({ email, password });
     } catch (err) {
       setState({
         ...state,
@@ -28,6 +29,7 @@ export const LoginForm = ({ onSubmit }) => {
         <input
           type='email'
           name='email'
+          autoComplete='email'
           value={state.email}
           onChange={updateState}
         />
@@ -37,6 +39,7 @@ export const LoginForm = ({ onSubmit }) => {
         <input
           type='password'
           name='password'
+          autoComplete='current-password'
           value={state.password}
           onChange={updateState}
         />

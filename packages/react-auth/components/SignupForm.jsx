@@ -1,6 +1,9 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
+import { AuthContext } from './AuthProvider';
 
 export const SignupForm = ({ onSubmit }) => {
+
+  const { authService } = useContext(AuthContext);
 
   const [state, setState] = useState({ email: '', password: '', error: ''});
 
@@ -12,7 +15,9 @@ export const SignupForm = ({ onSubmit }) => {
   const signUp = async e => {
     e.preventDefault();
     try {
-      await onSubmit(state);
+      const { email, password } = state;
+      const authToken = await authService.signUp({ email, password });
+      console.log('signup success:', authToken);
     } catch (err) {
       setState({
         ...state,
@@ -28,6 +33,7 @@ export const SignupForm = ({ onSubmit }) => {
         <input
           type='email'
           name='email'
+          autoComplete='email'
           value={state.email}
           onChange={updateState}
         />
@@ -37,6 +43,7 @@ export const SignupForm = ({ onSubmit }) => {
         <input
           type='password'
           name='password'
+          autoComplete='current-password'
           value={state.password}
           onChange={updateState}
         />

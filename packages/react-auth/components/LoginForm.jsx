@@ -1,10 +1,13 @@
 import { useState, useContext } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
 
 export const LoginForm = () => {
 
-  const { authService } = useContext(AuthContext);
+  const navigate = useNavigate();
+
+  const { authService, verifyUser } = useContext(AuthContext);
 
   const [state, setState] = useState({ email: '', password: '', error: ''});
 
@@ -14,22 +17,37 @@ export const LoginForm = () => {
   });
 
   const logIn = async e => {
+    
     e.preventDefault();
+    
     try {
+      
       const { email, password } = state;
       const authToken = await authService.logIn({ email, password });
-      console.log('login success:', authToken);
+
+      authService.storeAuthToken(authToken);
+      await verifyUser();
+      navigate('/dashboard');
+
     } catch (err) {
+
       setState({
         ...state,
         error: err.message
       });
+
     }
+
   }
 
   return (
-    <form onSubmit={logIn} >
-      <div>
+    <form
+      onSubmit={logIn}
+      className='login_form'
+    >
+      <div
+        className='login_form-group'
+      >
         <label>Email</label>
         <input
           type='email'

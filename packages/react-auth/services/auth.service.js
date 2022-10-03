@@ -49,6 +49,40 @@ export class AuthService {
     }
   }
 
+  storeAuthToken(token){
+    localStorage.setItem('authToken', token);
+  }
+
+  removeAuthToken(){
+    localStorage.removeItem('authToken');
+  }
+
+  async verify(){
+    
+    const authToken = localStorage.getItem('authToken');
+
+    if(authToken){
+
+      try{
+        const res = await fetch(this.verifyUrl, {
+          method: 'GET',
+          headers: {
+            Authorization: `Bearer ${authToken}`
+          }
+        });
+        const json = res.json();
+        if(json.error){
+          throw new Error(json.error.message)
+        }
+        return json;
+      } catch (err) {
+        throw err;
+      }
+    } else {
+      throw new Error('missing authToken')
+    }
+  }
+
 }
 
 // export { AuthService };

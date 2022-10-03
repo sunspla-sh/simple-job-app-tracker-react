@@ -4,8 +4,14 @@ import { LoginForm } from 'react-auth';
 export const LoginPage = ({ signupPath }) => {
 
   return (
-    <div>
-      <h1>Login</h1>
+    <div
+      className='login_page'
+    >
+      <h1
+        className='login_page-title'
+      >
+        Log In
+      </h1>
       <LoginForm />
       <Link
         to={signupPath}

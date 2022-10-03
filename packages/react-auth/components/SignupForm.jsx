@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 
-export const SignupForm = ({ onSubmit }) => {
+export const SignupForm = () => {
 
   const { authService } = useContext(AuthContext);
 
@@ -13,39 +13,69 @@ export const SignupForm = ({ onSubmit }) => {
   });
 
   const signUp = async e => {
+
     e.preventDefault();
+
     try {
+
       const { email, password } = state;
       const authToken = await authService.signUp({ email, password });
-      console.log('signup success:', authToken);
+
+      authService.storeAuthToken(authToken);
+      await verifyUser();
+      navigate('/dashboard');
+
     } catch (err) {
+
       setState({
         ...state,
         error: err.message
       });
+
     }
   }
 
   return (
-    <form onSubmit={signUp} >
-      <div>
-        <label>Email</label>
+    <form
+      onSubmit={signUp}
+      className='signup_form'
+    >
+      <div
+        className='signup_form-group'
+      >
+        <label
+          htmlFor='email'
+          className='signup_form-label'
+        >
+          Email
+        </label>
         <input
+          id='email'
           type='email'
           name='email'
           autoComplete='email'
           value={state.email}
           onChange={updateState}
+          className='signup_form-input'
         />
       </div>
-      <div>
-        <label>Password</label>
+      <div
+        className='signup_form-group'
+      >
+        <label
+          htmlFor='password'
+          className='signup_form-label'
+        >
+          Password
+        </label>
         <input
+          id='password'
           type='password'
           name='password'
           autoComplete='current-password'
           value={state.password}
           onChange={updateState}
+          className='signup_form-input'
         />
       </div>
       <div>

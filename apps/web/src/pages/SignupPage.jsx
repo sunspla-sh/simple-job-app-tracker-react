@@ -3,14 +3,16 @@ import { Link } from "react-router-dom";
 
 export const SignupPage = ({ loginPath }) => {
 
-  const onSubmit = async ({ email, password }) => {
-    console.log('sign up: ', email, password)
-  }
-
   return (
-    <div>
-      <h1>Signup</h1>
-      <SignupForm onSubmit={onSubmit} />
+    <div
+      className='signup_page'
+    >
+      <h1
+        className='signup_page-title'
+      >
+        Sign Up
+      </h1>
+      <SignupForm />
       <Link
         to={loginPath}
       >

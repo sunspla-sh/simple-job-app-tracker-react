@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import { AuthContext } from '../contexts/AuthContext';
 
@@ -18,11 +18,44 @@ export const AuthProvider = ({ children, config }) => {
   const [isLoading, setIsLoading] = useState(true);
   const [user, setUser] = useState(null);
 
+  const verifyUser = async () => {
+
+    try{
+      const user = await authService.verify();
+      setIsLoading(false);
+      setIsLoggedIn(true);
+      setUser(user);
+    } catch (err) {
+      setIsLoading(false);
+      setIsLoggedIn(false);
+      setUser(null);
+      throw err
+    }
+
+  };
+
+  const logOutUser = async () => {
+    authService.removeAuthToken();
+    try {
+      await verifyUser();
+    } catch (err) {}
+  }
+
+  useEffect(() => {
+    (async () => {
+      try {
+        await verifyUser();
+      } catch (err) {}
+    })();
+  }, [])
+
   const value = {
     isLoading,
     isLoggedIn,
     user,
-    authService
+    authService,
+    verifyUser,
+    logOutUser
   };
 
   return (

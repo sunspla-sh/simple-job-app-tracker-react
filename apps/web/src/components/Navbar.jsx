@@ -1,12 +1,14 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { NavLink } from "react-router-dom";
+
+import { AuthContext } from 'react-auth';
 
 export const Navbar = () => {
 
-  const [isOpen, setIsOpen] = useState(false);
-  //check auth context
-  const isLoggedIn = false;
+  const { isLoggedIn, logOutUser, user } = useContext(AuthContext);
 
+  const [isOpen, setIsOpen] = useState(false);
+    
   const loggedInNavigation = [
     {
       name: 'Dashboard',
@@ -59,7 +61,10 @@ export const Navbar = () => {
             </svg>
           </div>
           <div>
-            hey, jack
+            Apps: 0/5
+          </div>
+          <div>
+            Time Remaining: 13H 54M
           </div>
           <div onClick={() => setIsOpen(!isOpen)}>
               <svg
@@ -84,26 +89,36 @@ export const Navbar = () => {
           {/* links to all pages in a row */}
         </div>
       </div>
-      <div className={isOpen ? 'navbar_dropdown' : 'hidden'}>
+      <div
+        className={isOpen ? 'navbar_dropdown' : 'hidden'}
+        onClick={() => setIsOpen(false)}
+      >
         {isLoggedIn ? (
           <>
             {loggedInNavigation.map(element => (
               <NavLink
+                key={element.to}
                 to={element.to}
                 className={({ isActive }) => isActive ? 'navbar_dropdown-link active' : 'navbar_dropdown-link'}
+                onClick={() => setIsOpen(false)}
               >
                 {element.name}
               </NavLink>
             ))}
-            <button>
+            <button
+              className='navbar_dropdown-logout'
+              onClick={logOutUser}
+            >
               Log Out
             </button>
           </>
         ) : (
           loggedOutNavigation.map(element => (
             <NavLink
+              key={element.to}
               to={element.to}
               className={({ isActive }) => isActive ? 'navbar_dropdown-link active' : 'navbar_dropdown-link'}
+              onClick={() => setIsOpen(false)}
             >
               {element.name}
             </NavLink>

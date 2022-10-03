@@ -87,6 +87,18 @@ body {
   color: var(--primary-text);
 }
 
+.signup_page-login-container,
+.login_page-signup-container {
+  text-align: center;
+  margin: 3rem 0 0 0;
+}
+
+.signup_page-login-link,
+.login_page-signup-link {
+  font-weight: bold;
+  color: var(--primary-text)
+}
+
 .signup_form .signup_form-group,
 .login_form .login_form-group {
   display: flex;
@@ -107,8 +119,43 @@ body {
   background-color: var(--secondary-background);
   border: 1px solid var(--primary-text);
   border-radius: 5px;
-  padding: 0.5rem;
+  padding: 1rem;
   font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.signup_form .signup_form-group .signup_form-input:focus,
+.signup_form .signup_form-group .signup_form-input:active,
+.login_form .login_form-group .login_form-input:focus,
+.login_form .login_form-group .login_form-input:active {
+  outline: 3px solid var(--primary-text);
+}
+
+.signup_form .signup_form-group .signup_form-button,
+.login_form .login_form-group .login_form-button {
+    background-color: var(--primary-text);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.5rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    color: var(--primary-background);
+    font-weight: bold;
+    font-size: 1rem;
+}
+
+.signup_form .signup_form-group .signup_form-button:hover,
+.login_form .login_form-group .login_form-button:hover {
+  text-decoration: underline;
+  transform: translateY(-1px)
+}
+
+.signup_form .signup_form-error,
+.login_form .login_form-error {
+  color: red;
+  font-weight: bold;
+  text-align: center;
 }
 
 @media (min-width: 800px){

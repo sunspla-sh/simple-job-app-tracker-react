@@ -78,13 +78,19 @@ export const SignupForm = () => {
           className='signup_form-input'
         />
       </div>
-      <div>
-        <button>
+      <div
+        className='signup_form-group'
+      >
+        <button
+          className='signup_form-button'
+        >
           Sign Up
         </button>
       </div>
       {state.error && (
-        <div>
+        <div
+          className='signup_form-error'
+        >
           <p>{state.error}</p>
         </div>
       )}

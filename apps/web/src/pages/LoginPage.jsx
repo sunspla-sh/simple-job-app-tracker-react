@@ -13,11 +13,16 @@ export const LoginPage = ({ signupPath }) => {
         Log In
       </h1>
       <LoginForm />
-      <Link
-        to={signupPath}
+      <div
+        className='login_page-signup-container'
       >
-        Don't have an account? Sign up!
-      </Link>
+        <Link
+          to={signupPath}
+          className='login_page-signup-link'
+        >
+          Don't have an account? Sign up!
+        </Link>
+      </div>
     </div>
   );
 };

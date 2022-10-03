@@ -48,32 +48,54 @@ export const LoginForm = () => {
       <div
         className='login_form-group'
       >
-        <label>Email</label>
+        <label
+          className='login_form-label'
+          htmlFor='email'
+        >
+          Email
+        </label>
         <input
+          id='email'
           type='email'
           name='email'
           autoComplete='email'
           value={state.email}
           onChange={updateState}
+          className='login_form-input'
         />
       </div>
-      <div>
-        <label>Password</label>
+      <div
+        className='login_form-group'
+      >
+        <label
+          className='login_form-label'
+          htmlFor='password'
+        >
+          Password
+        </label>
         <input
+          id='password'
           type='password'
           name='password'
           autoComplete='current-password'
           value={state.password}
           onChange={updateState}
+          className='login_form-input'
         />
       </div>
-      <div>
-        <button>
+      <div
+        className='login_form-group'
+      >
+        <button
+          className='login_form-button'
+        >
           Log In
         </button>
       </div>
       {state.error && (
-        <div>
+        <div
+          className='login_form-error'
+        >
           <p>{state.error}</p>
         </div>
       )}

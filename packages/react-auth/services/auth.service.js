@@ -53,13 +53,17 @@ export class AuthService {
     localStorage.setItem('authToken', token);
   }
 
+  retrieveAuthToken(){
+    return localStorage.getItem('authToken');
+  }
+
   removeAuthToken(){
     localStorage.removeItem('authToken');
   }
 
   async verify(){
     
-    const authToken = localStorage.getItem('authToken');
+    const authToken = this.retrieveAuthToken();
 
     if(authToken){
 

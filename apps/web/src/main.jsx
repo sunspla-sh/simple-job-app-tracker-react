@@ -5,18 +5,29 @@ import './index.css'
 
 import { BrowserRouter } from 'react-router-dom';
 
-import { AuthProvider } from 'react-auth';
+import { AuthProvider, JobAppProvider } from 'react-auth';
+
+const baseUrl = 'http://localhost:3000'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider config={{
-      signUpUrl: 'http://localhost:3000/auth/signup',
-      logInUrl: 'http://localhost:3000/auth/login',
-      verifyUrl: 'http://localhost:3000/auth/verify'
+      signUpUrl: `${baseUrl}/auth/signup`,
+      logInUrl: `${baseUrl}/auth/login`,
+      verifyUrl: `${baseUrl}/auth/verify`,
     }}>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <JobAppProvider
+        config={{
+          getJobAppsUrl: `${baseUrl}/api/jobapps`,
+          getJobAppsDailyCountUrl: `${baseUrl}/api/jobapps-daily-count`,
+          postJobAppUrl: `${baseUrl}/api/jobapp`,
+          deleteJobAppUrl: `${baseUrl}/api/jobapp`
+        }}
+      >
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </JobAppProvider>
     </AuthProvider>
   </React.StrictMode>
 )

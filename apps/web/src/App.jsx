@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { SignupPage } from './pages/SignupPage';
 import { LoginPage } from './pages/LoginPage';
 import { UnauthOnly, AuthOnly } from 'react-auth';
+import { DashboardPage } from './pages/DashboardPage';
 
 
 function App() {
@@ -34,7 +35,7 @@ function App() {
             path='/dashboard'
             element={
               <AuthOnly>
-                <h1>the dashboard page</h1>
+                <DashboardPage />
               </AuthOnly>
             }
           />

@@ -148,7 +148,7 @@ body {
 .signup_form .signup_form-group .signup_form-button:hover,
 .login_form .login_form-group .login_form-button:hover {
   text-decoration: underline;
-  transform: translateY(-1px)
+  transform: translateY(1px)
 }
 
 .signup_form .signup_form-error,

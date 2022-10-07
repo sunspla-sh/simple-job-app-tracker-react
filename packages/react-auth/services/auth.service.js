@@ -74,7 +74,7 @@ export class AuthService {
             Authorization: `Bearer ${authToken}`
           }
         });
-        const json = res.json();
+        const json = await res.json();
         if(json.error){
           throw new Error(json.error.message)
         }

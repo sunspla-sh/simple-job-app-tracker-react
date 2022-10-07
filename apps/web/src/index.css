@@ -2,6 +2,7 @@
   font-family: 'Nunito', sans-serif;
   --primary-text: mediumpurple;
   --secondary-text: mediumaquamarine;
+  --tertiary-text: slategray;
   --primary-background: ghostwhite;
   --secondary-background: mintcream; 
 }
@@ -68,7 +69,7 @@ body {
   font-weight: bold;
   font-size: 1.5rem;
   text-decoration: none;
-  color: slategray;
+  color: var(--tertiary-text);
   border: none;
   background: none;
   padding: 0;
@@ -157,6 +158,91 @@ body {
   font-weight: bold;
   text-align: center;
 }
+
+.jobapp_container {
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.jobapp_container .jobapp_company {
+  margin-bottom: 1rem;
+}
+
+.jobapp_container .jobapp_company .jobapp_company-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.jobapp_container .jobapp_company .jobapp_company-value {
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.jobapp_container .jobapp_title {
+  margin-bottom: 1rem;
+}
+
+.jobapp_container .jobapp_title .jobapp_title-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.jobapp_container .jobapp_title .jobapp_title-value {
+  color: var(--secondary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container .jobapp_description {
+  margin-bottom: 1rem;
+}
+
+.jobapp_container .jobapp_description .jobapp_description-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.jobapp_container .jobapp_description .jobapp_description-value {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.jobapp_container .jobapp_companyUrl {
+  margin-bottom: 1rem;
+}
+
+.jobapp_container .jobapp_companyUrl .jobapp_companyUrl-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.jobapp_container .jobapp_companyUrl .jobapp_companyUrl-value a {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
+.jobapp_container .jobapp_createdAt {
+  margin-bottom: 1rem;
+}
+
+.jobapp_container .jobapp_createdAt .jobapp_createdAt-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.jobapp_container .jobapp_createdAt .jobapp_createdAt-value {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
 
 @media (min-width: 800px){
   .navbar .navbar_header .navbar_header-mobile,

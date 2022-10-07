@@ -45,7 +45,9 @@ export const AuthProvider = ({ children, config }) => {
     (async () => {
       try {
         await verifyUser();
-      } catch (err) {}
+      } catch (err) {
+        console.log(err)
+      }
     })();
   }, [])
 

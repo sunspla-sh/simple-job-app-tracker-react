@@ -170,4 +170,7 @@ router.delete('/jobapp/:id', async (req, res, next) => {
 
 });
 
+//route for fetching favicons
+//https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://travis-ci.com&size=32
+
 module.exports = router;

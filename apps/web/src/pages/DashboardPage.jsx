@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { JobAppContext } from 'react-auth';
+import { JobApp } from '../components/JobApp';
 
 export const DashboardPage = () => {
 
@@ -23,16 +24,27 @@ export const DashboardPage = () => {
 
   return (
     <div>
-      using dashboardpage
-      {jobApps.map(({ company, companyUrl, createdAt, description, title, id }) => (
-        <div style={{ margin: '2rem' }} key={id}>
-          <div>Company: {company}</div>
-          <div>Title: {title}</div>
-          <div>Description: {description}</div>          
-          <div>Application Date: {createdAt}</div>
-          <div>Website: {companyUrl}</div>
+      <div>
+        <div>
+          <h1>Dashboard</h1>
         </div>
-      ))}
+        <div>
+          <h3>Time Remaining</h3>
+        </div>
+        <div>
+          <h3>Today's Job App Count</h3>
+        </div>        
+      </div>
+      
+      
+      <div>
+        <div>
+          <h2>Job Apps</h2>
+        </div>
+        <div>
+          {jobApps.map(jobApp => <JobApp {...jobApp} key={jobApp.id} />)}
+        </div>
+      </div>
     </div>
   );
 

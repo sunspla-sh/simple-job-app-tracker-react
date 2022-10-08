@@ -4,18 +4,18 @@ Date.prototype.toTemporalInstant = toTemporalInstant;
 
 export const TimeRemaining = () => {
 
-  const [time, setTime] = useState(Temporal.Now.zonedDateTimeISO('America/New_York'));
+  const start = Temporal.Now.zonedDateTimeISO('America/New_York');
+  const tomorrow = Temporal.ZonedDateTime.from(start).add({ days: 1}).round({ smallestUnit: 'day', roundingMode: 'floor' });
+
+  const [time, setTime] = useState(start.until(tomorrow));
 
   useEffect(() => {
     
     const myIntervalId = setInterval(() => {
       const nowInEastern = Temporal.Now.zonedDateTimeISO('America/New_York');
       const tomorrowInEastern = Temporal.ZonedDateTime.from(nowInEastern).add({ days: 1}).round({ smallestUnit: 'day', roundingMode: 'floor' });
-      console.log(nowInEastern.toString());
-      console.log(tomorrowInEastern.toString());
-      // console.log(tomorrowInEastern);
-      //i think i need to make a temporal duration here using the difference between the two times
-      setTime(Temporal.Now.zonedDateTimeISO('America/New_York'));
+      const remaining = nowInEastern.until(tomorrowInEastern);
+      setTime(remaining);
     }, 1000);
     
     return () => {
@@ -26,8 +26,15 @@ export const TimeRemaining = () => {
 
 
   return (
-    <div>
-      {`${time.hour}:${time.minute}:${time.second}`}
+    <div className='timeremaining_container'>
+      <h3 className='timeremaining_title'>
+        Time Remaining
+      </h3>
+      <div className='timeremaining_time'>
+        {time.hours < 10 ? `0${time.hours}` : `${time.hours}`}:
+        {time.minutes < 10 ? `0${time.minutes}` : `${time.minutes}`}:
+        {time.seconds < 10 ? `0${time.seconds}` : `${time.seconds}`}
+      </div>
     </div>
   );
 

@@ -170,6 +170,23 @@ body {
   color: var(--primary-text)
 }
 
+.timeremaining_container {
+
+}
+
+.timeremaining_container .timeremaining_title {
+  color: var(--secondary-text);
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.timeremaining_container .timeremaining_time {
+  text-align: center;
+  color: var(--tertiary-text);
+  font-weight: bold;
+}
+
 .jobapp_list {
 
 }

@@ -9,10 +9,6 @@ export const DashboardPage = () => {
         <div className='dashboard_page-title-container'>
           <h1 className='dashboard_page-title'>Dashboard</h1>
         </div>
-        <div> 
-          {/* needs to be separate component */}
-          <h3>Time Remaining</h3>
-        </div>
         <TimeRemaining />
         <div>
           {/* also needs to be separate component */}

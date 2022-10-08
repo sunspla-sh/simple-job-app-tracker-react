@@ -159,6 +159,28 @@ body {
   text-align: center;
 }
 
+.dashboard_page {
+
+}
+
+.dashboard_page .dashboard_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.jobapp_list {
+
+}
+
+.jobapp_list-title {
+  color: var(--primary-text);
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+}
+
 .jobapp_container {
   border: 1px solid var(--primary-text);
   border-radius: 5px;

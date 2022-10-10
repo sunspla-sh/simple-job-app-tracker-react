@@ -1,4 +1,5 @@
 import { JobAppList } from '../components/JobAppList';
+import { JobAppDailyCount } from 'react-jobapp';
 import { TimeRemaining } from 'react-ui';
 
 export const DashboardPage = () => {
@@ -10,10 +11,7 @@ export const DashboardPage = () => {
           <h1 className='dashboard_page-title'>Dashboard</h1>
         </div>
         <TimeRemaining />
-        <div>
-          {/* also needs to be separate component */}
-          <h3>Today's Job App Count</h3>
-        </div>        
+        <JobAppDailyCount />
       </div>
       <JobAppList />
     </div>

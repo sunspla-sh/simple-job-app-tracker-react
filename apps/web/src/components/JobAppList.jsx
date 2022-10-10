@@ -1,5 +1,5 @@
 import { useEffect, useState, useContext } from 'react';
-import { JobAppContext } from 'react-auth';
+import { JobAppContext } from 'react-jobapp';
 import { JobApp } from '../components/JobApp';
 
 export const JobAppList = () => {

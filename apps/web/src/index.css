@@ -187,6 +187,35 @@ body {
   font-weight: bold;
 }
 
+.jobappdailycount_container {
+
+}
+
+.jobappdailycount_title {
+  color: var(--secondary-text);
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.jobappdailycount_count {
+  
+}
+
+.jobappdailycount_count-loading {
+  
+}
+
+.jobappdailycount_count-display {
+  text-align: center;
+  color: var(--tertiary-text);
+  font-weight: bold;
+}
+
+.jobappdailycount_count-error {
+  
+}
+
 .jobapp_list {
 
 }

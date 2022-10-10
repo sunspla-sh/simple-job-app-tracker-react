@@ -9,10 +9,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "react": "^18.2.0"
-  },
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.2"
+    "@js-temporal/polyfill": "^0.4.2",
+    "react": "^18.2.0"
   }
 }

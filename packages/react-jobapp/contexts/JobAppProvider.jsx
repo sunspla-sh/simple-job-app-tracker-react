@@ -1,6 +1,6 @@
 import { useContext } from "react";
-import { JobAppService } from "../../services/jobApp.service";
-import { AuthContext } from "../auth/AuthContext";
+import { JobAppService } from "../services/jobApp.service";
+import { AuthContext } from "react-auth";
 import { JobAppContext } from "./JobAppContext";
 
 

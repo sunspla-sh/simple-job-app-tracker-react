@@ -5,7 +5,8 @@ import './index.css'
 
 import { BrowserRouter } from 'react-router-dom';
 
-import { AuthProvider, JobAppProvider } from 'react-auth';
+import { AuthProvider } from 'react-auth';
+import { JobAppProvider } from 'react-jobapp';
 
 const baseUrl = 'http://localhost:3000'
 

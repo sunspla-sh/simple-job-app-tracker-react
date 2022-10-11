@@ -4,6 +4,8 @@ import { SignupPage } from './pages/SignupPage';
 import { LoginPage } from './pages/LoginPage';
 import { UnauthOnly, AuthOnly } from 'react-auth';
 import { DashboardPage } from './pages/DashboardPage';
+import { FAQPage } from './pages/FAQPage';
+import { AboutPage } from './pages/AboutPage';
 
 
 function App() {
@@ -22,13 +24,13 @@ function App() {
           <Route
             path='/faq'
             element={
-              <h1>the faq page</h1>
+              <FAQPage />
             }
           />
           <Route
             path='/about'
             element={
-              <h1>the about page</h1>
+              <AboutPage />
             }
           />
           <Route

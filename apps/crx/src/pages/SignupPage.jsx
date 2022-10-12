@@ -1,5 +1,5 @@
-import { SignupForm } from "react-auth";
 import { Link } from "react-router-dom";
+import { SignupForm } from "react-auth";
 
 export const SignupPage = ({ loginPath, onSuccessNavigatePath }) => {
 

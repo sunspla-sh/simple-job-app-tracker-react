@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 
 import { AuthContext } from '../contexts/AuthContext';
 
-export const LoginForm = () => {
+export const LoginForm = ({ onSuccessNavigatePath }) => {
 
   const navigate = useNavigate();
 
@@ -27,7 +27,7 @@ export const LoginForm = () => {
 
       authService.storeAuthToken(authToken);
       await verifyUser();
-      navigate('/dashboard');
+      navigate(onSuccessNavigatePath);
 
     } catch (err) {
 

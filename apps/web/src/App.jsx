@@ -6,6 +6,7 @@ import { UnauthOnly, AuthOnly } from 'react-auth';
 import { DashboardPage } from './pages/DashboardPage';
 import { FAQPage } from './pages/FAQPage';
 import { AboutPage } from './pages/AboutPage';
+import { HomePage } from './pages/HomePage';
 
 
 function App() {
@@ -18,7 +19,7 @@ function App() {
           <Route
             path='/'
             element={
-              <h1>the home page</h1>
+              <HomePage />
             }
           />
           <Route
@@ -53,7 +54,7 @@ function App() {
             path='/signup'
             element={
               <UnauthOnly>
-                <SignupPage loginPath={'/login'} />
+                <SignupPage loginPath={'/login'} onSuccessNavigatePath={'/dashboard'}/>
               </UnauthOnly>
             }
           />
@@ -61,7 +62,7 @@ function App() {
             path='/login'
             element={
               <UnauthOnly>
-                <LoginPage signupPath={'/signup'}/>
+                <LoginPage signupPath={'/signup'} onSuccessNavigatePath={'/dashboard'}/>
               </UnauthOnly>
             }
           />

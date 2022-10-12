@@ -18,6 +18,14 @@
 [x] react-auth - SignupForm component
 [x] react-auth - LoginForm component
 [] web - job application report table
+[x] crx - set up memory router
+[x] crx - login page
+[x] crx - signup page
+[] crx - jobapp form
+[] crx - jobapp page
+[] crx - styling
 [] chron - for sending daily text/telegram/whatsapp/slack/discord/email message report
 [] custom rollup config for chrome-extension?
+[] switch to react-router-dom outlets?
+[] move signup and login pages to react-auth?
 [] fly.io deployment config

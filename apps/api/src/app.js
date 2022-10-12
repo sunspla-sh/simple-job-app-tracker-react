@@ -14,7 +14,7 @@ app.use(morgan('dev'));
 //     'http://localhost:5174'
 //   ]
 // }))
-app.use(cors('*'))
+app.use(cors('*'));
 
 app.use(express.json());
 

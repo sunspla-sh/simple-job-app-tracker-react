@@ -25,6 +25,7 @@
 [] crx - jobapp page
 [] crx - styling
 [] chron - for sending daily text/telegram/whatsapp/slack/discord/email message report
+[] local scope for CSS?
 [] custom rollup config for chrome-extension?
 [] switch to react-router-dom outlets?
 [] move signup and login pages to react-auth?

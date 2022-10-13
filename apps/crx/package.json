@@ -10,10 +10,10 @@
   },
   "dependencies": {
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.4.1",
     "react-auth": "workspace:*",
-    "react-jobapp": "workspace:*"
+    "react-dom": "^18.2.0",
+    "react-jobapp": "workspace:*",
+    "react-router-dom": "^6.4.1"
   },
   "devDependencies": {
     "@crxjs/vite-plugin": "^1.0.14",

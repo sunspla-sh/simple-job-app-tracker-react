@@ -1,6 +1,7 @@
 import { Routes, Route, Link } from 'react-router-dom';
 import { SignupPage } from './pages/SignupPage';
 import { LoginPage } from './pages/LoginPage';
+import { JobAppCreatePage } from './pages/JobAppCreatePage';
 
 function App() {
 
@@ -38,7 +39,7 @@ function App() {
         <Route
           path='/jobapp/create'
           element={
-            <h1>Job App Create Form</h1>
+            <JobAppCreatePage />
           }
         />
       </Routes>

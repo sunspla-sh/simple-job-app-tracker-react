@@ -17,9 +17,12 @@ router.get('/jobapps', async (req, res, next) => {
     const jobApps = await prisma.jobApp.findMany({
       where: {
         userId
+      },
+      orderBy: {
+        createdAt: 'desc'
       }
-    })
-    res.json(jobApps)
+    });
+    res.json(jobApps);
   } catch(err) {
     next(err);
   }

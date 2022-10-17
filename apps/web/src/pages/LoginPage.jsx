@@ -7,21 +7,25 @@ export const LoginPage = ({ signupPath, onSuccessNavigatePath }) => {
     <div
       className='login_page'
     >
-      <h1
-        className='login_page-title'
-      >
-        Log In
-      </h1>
-      <LoginForm onSuccessNavigatePath={onSuccessNavigatePath} />
       <div
-        className='login_page-signup-container'
+        className='login_page-container'
       >
-        <Link
-          to={signupPath}
-          className='login_page-signup-link'
+        <h1
+          className='login_page-title'
         >
-          Don't have an account? Sign up!
-        </Link>
+          Log In
+        </h1>
+        <LoginForm onSuccessNavigatePath={onSuccessNavigatePath} />
+        <div
+          className='login_page-signup-container'
+        >
+          <Link
+            to={signupPath}
+            className='login_page-signup-link'
+          >
+            Don't have an account? Sign up!
+          </Link>
+        </div>
       </div>
     </div>
   );

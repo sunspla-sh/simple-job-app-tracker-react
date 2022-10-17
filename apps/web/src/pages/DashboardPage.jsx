@@ -10,8 +10,11 @@ export const DashboardPage = () => {
         <div className='dashboard_page-title-container'>
           <h1 className='dashboard_page-title'>Dashboard</h1>
         </div>
-        <TimeRemaining />
-        <JobAppDailyCount />
+        <div className='dashboard_page-stats-container'>
+          <TimeRemaining />
+          <JobAppDailyCount />
+        </div>
+        
       </div>
       <JobAppList />
     </div>

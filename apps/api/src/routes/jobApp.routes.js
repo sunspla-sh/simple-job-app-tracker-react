@@ -1,6 +1,8 @@
 const express = require('express');
 const { PrismaClient } = require('@prisma/client');
 
+const { STATUS_ENUM } = require('../utils/statusEnum');
+
 const { Temporal, Intl, toTemporalInstant } = require('@js-temporal/polyfill');
 Date.prototype.toTemporalInstant = toTemporalInstant;
 
@@ -72,9 +74,7 @@ router.post('/jobapp', async (req, res, next) => {
   const { id: userId } = req.payload;
 
   //get jobapp data from body
-  const { title, description, company, companyUrl } = req.body;
-
-  
+  const { title, description, company, companyUrl, status } = req.body;
 
   /**
    *  validate jobapp data from body
@@ -95,10 +95,12 @@ router.post('/jobapp', async (req, res, next) => {
     || typeof company !== 'string'
     || !companyUrl
     || typeof companyUrl !== 'string'
+    || !status
+    || typeof status !== 'string'
   ){
     return res.status(400).json({
       error: {
-        message: 'title, description, company, and company url are required'
+        message: 'title, description, company, company url, and status are required'
       }
     });
   }
@@ -135,6 +137,14 @@ router.post('/jobapp', async (req, res, next) => {
     });
   }
 
+  if(!STATUS_ENUM.includes(status)){
+    return res.status(400).json({
+      error: {
+        message: 'status must be one of the following values: ' + STATUS_ENUM.join(', ')
+      }
+    });
+  }
+
   //create new jobapp with user id
   try {
     await prisma.jobApp.create({
@@ -143,6 +153,7 @@ router.post('/jobapp', async (req, res, next) => {
         description,
         company,
         companyUrl,
+        status,
         userId
       }
     });
@@ -154,6 +165,125 @@ router.post('/jobapp', async (req, res, next) => {
   }
 
 });
+
+router.put('/jobapp/:id', async (req, res, next) => {
+
+  //get user id from payload
+  const { id: userId } = req.payload;
+
+  //get jobApp id from payload
+  const { id: jobAppId } = req.params;
+
+  try {
+    const foundJobApp = await prisma.jobApp.findUnique({
+      where: {
+        id: jobAppId
+      }
+    });
+    if(foundJobApp.userId !== userId) {
+      return res.status(400).json({
+        error: {
+          message: 'job app not found'
+        }
+      });
+    }
+  } catch (err) {
+    next(err)
+  }
+
+  const { title, description, company, companyUrl, status } = req.body;
+
+  /**
+   *  validate jobapp data from body
+   *  ---
+   *  character limits
+   *  ---
+   *  title - 128
+   *  description - 512
+   *  company - 128
+   *  companyUrl - 256
+   * 
+   */
+  if(!title
+    || typeof title !== 'string'
+    || !description
+    || typeof description !== 'string'
+    || !company
+    || typeof company !== 'string'
+    || !companyUrl
+    || typeof companyUrl !== 'string'
+    || !status
+    || typeof status !== 'string'
+  ){
+    return res.status(400).json({
+      error: {
+        message: 'title, description, company, company url, and status are required'
+      }
+    });
+  }
+
+  if(title.length > 128){
+    return res.status(400).json({
+      error: {
+        message: 'title character count limit is 128'
+      }
+    });
+  }
+
+  if(description.length > 512){
+    return res.status(400).json({
+      error: {
+        message: 'description character count limit is 512'
+      }
+    });
+  }
+
+  if(company.length > 128){
+    return res.status(400).json({
+      error: {
+        message: 'company character count limit is 128'
+      }
+    });
+  }
+
+  if(companyUrl.length > 256){
+    return res.status(400).json({
+      error: {
+        message: 'company url character count limit is 256'
+      }
+    });
+  }
+
+  if(!STATUS_ENUM.includes(status)){
+    return res.status(400).json({
+      error: {
+        message: 'status must be one of the following values: ' + STATUS_ENUM.join(', ')
+      }
+    });
+  }
+
+  try {
+    await prisma.jobApp.update({
+      where: {
+        id: jobAppId,
+      },
+      data: {
+        title,
+        description,
+        company,
+        companyUrl,
+        status,
+        userId
+      }
+    });
+    res.status(200).json({
+      success: true
+    });
+  } catch(err) {
+    next(err);
+  }
+
+})
 
 router.delete('/jobapp/:id', async (req, res, next) => {
 

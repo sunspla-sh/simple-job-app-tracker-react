@@ -13,13 +13,15 @@ const userData = [
           title: 'junior react developer',
           description: 'frontend role requiring knowledge of react, mongodb, and typescript',
           company: 'carnival cruise line',
-          companyUrl: 'https://carnival.com'
+          companyUrl: 'https://carnival.com',
+          status: 'APPLIED'
         },
         {
           title: 'backend developer',
           description: 'backend role requiring knowledge of express, sql, and redis',
           company: 'ukg',
-          companyUrl: 'https://ukg.com'
+          companyUrl: 'https://ukg.com',
+          status: 'INTERVIEWING'
         }
       ]
     }

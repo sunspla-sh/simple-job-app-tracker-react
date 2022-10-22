@@ -12,12 +12,23 @@
 [x] api - reset sqlite database, prisma migrate and generate client
 [] api - request password reset route
 [] api - password reset route
-[] api - jobapp delete route
-[] api - jobapp edit route
+[] api - jobapp routes
+  [] api - jobapp edit route
+  [] api - jobapp delete route
+[] api - note routes
+  [] api - note create route
+  [] api - note edit route
+  [] api - note delete route
+[] api - prisma update
+  [] api - prisma migrate dev
+  [] api - prisma generate client
 [x] react-auth - AuthProvider component
 [x] react-auth - SignupForm component
 [x] react-auth - LoginForm component
 [] web - job application report table
+[] web - single jobapp page
+  [] web - single jobapp edit component
+  [] web - single note edit component
 [] web - styling
   [x] web - desktop navbar
   [] web - max width signup/login
@@ -33,5 +44,4 @@
 [] local scope for CSS?
 [] custom rollup config for chrome-extension?
 [] switch to react-router-dom outlets?
-[] move signup and login pages to react-auth?
 [] fly.io deployment config

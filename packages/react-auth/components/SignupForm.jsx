@@ -1,9 +1,9 @@
 import { useState, useContext } from 'react';
 import { AuthContext } from '../contexts/AuthContext';
 
-export const SignupForm = () => {
+export const SignupForm = ({ onSuccessNavigatePath }) => {
 
-  const { authService } = useContext(AuthContext);
+  const { authService, verifyUser } = useContext(AuthContext);
 
   const [state, setState] = useState({ email: '', password: '', error: ''});
 
@@ -23,7 +23,7 @@ export const SignupForm = () => {
 
       authService.storeAuthToken(authToken);
       await verifyUser();
-      navigate('/dashboard');
+      navigate(onSuccessNavigatePath);
 
     } catch (err) {
 

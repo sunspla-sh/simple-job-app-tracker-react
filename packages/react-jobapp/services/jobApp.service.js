@@ -58,9 +58,9 @@ export class JobAppService {
    * 
    * @returns true - if job app was created successfully
    */
-  async postJobApp({ title, description, company, companyUrl }){
+  async postJobApp({ title, description, company, companyUrl, status }){
     try {
-      const body = { title, description, company, companyUrl };
+      const body = { title, description, company, companyUrl, status };
       const res = await fetch(this.postJobAppUrl, {
         headers: {
           authorization: `Bearer ${this.retrieveAuthToken()}`,

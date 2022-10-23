@@ -1,3 +1,1 @@
-const { STATUS_ENUM } = require('./src/utils/statusEnum');
-
-module.exports = { STATUS_ENUM };
+export * from './src/utils/statusEnum.js';

@@ -1,6 +1,8 @@
 import { useState, useContext } from "react";
 import { JobAppContext } from "../contexts/JobAppContext";
 
+import { STATUS_ENUM } from "api";
+
 export const JobAppCreateForm = () => {
 
   const { jobAppService } = useContext(JobAppContext);
@@ -9,7 +11,8 @@ export const JobAppCreateForm = () => {
     company: '',
     title: '',
     description: '',
-    companyUrl: ''
+    companyUrl: '',
+    status: STATUS_ENUM[0]
   });
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -31,7 +34,8 @@ export const JobAppCreateForm = () => {
         company: '',
         title: '',
         description: '',
-        companyUrl: ''
+        companyUrl: '',
+        status: STATUS_ENUM[0]
       });
       setErrorMessage(null);
       setSuccessMessage('Job App created successfully!');
@@ -82,11 +86,9 @@ export const JobAppCreateForm = () => {
         <textarea
           id="description"
           name="description"
+          value={state.description}
           onChange={updateState}
         >
-          {
-            state.description
-          }
         </textarea>
       </div>
       <div>
@@ -102,6 +104,23 @@ export const JobAppCreateForm = () => {
           value={state.companyUrl}
           onChange={updateState}
         />
+      </div>
+      <div>
+        <label
+          htmlFor="status"
+        >
+          Status
+        </label>
+        <select
+          name="status"
+          id="status"
+          value={state.status}
+          onChange={updateState}
+        >
+          {STATUS_ENUM.map(s => (
+            <option value={s}>{s}</option>
+          ))}
+        </select>
       </div>
       <div>
         <button>Create Job App</button>

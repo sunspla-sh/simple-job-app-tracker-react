@@ -19,10 +19,10 @@ ReactDOM.createRoot(document.getElementById('root')).render(
     }}>
       <JobAppProvider
         config={{
-          getJobAppsUrl: `${baseUrl}/api/jobapps`,
-          getJobAppsDailyCountUrl: `${baseUrl}/api/jobapps-daily-count`,
-          postJobAppUrl: `${baseUrl}/api/jobapp`,
-          deleteJobAppUrl: `${baseUrl}/api/jobapp`
+          getJobAppsUrl: `${baseUrl}/api/jobapp/all`,
+          getJobAppsDailyCountUrl: `${baseUrl}/api/jobapp/daily-count`,
+          postJobAppUrl: `${baseUrl}/api/jobapp/create`,
+          deleteJobAppUrl: `${baseUrl}/api/jobapp/delete`
         }}
       >
         <BrowserRouter>

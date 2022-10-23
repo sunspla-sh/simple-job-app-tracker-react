@@ -13,6 +13,7 @@
 [] api - request password reset route
 [] api - password reset route
 [] api - jobapp routes
+  [x] api - jobapp create route
   [] api - jobapp edit route
   [] api - jobapp delete route
 [] api - note routes
@@ -37,6 +38,7 @@
 [x] crx - login page
 [x] crx - signup page
 [x] crx - jobapp form
+  [] crx - jobapp form local storage for form data
 [x] crx - jobapp page
 [] crx - protect routes
 [] crx - styling

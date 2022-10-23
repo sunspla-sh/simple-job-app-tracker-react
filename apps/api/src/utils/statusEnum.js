@@ -1,5 +1,5 @@
 // No native enum in sqlite so we make our own
-const STATUS_ENUM = [
+export const STATUS_ENUM = [
   'APPLIED',
   'INTERVIEWING',
   'NO OFFER',
@@ -7,7 +7,3 @@ const STATUS_ENUM = [
   'OFFER DECLINED',
   'OFFER ACCEPTED'
 ];
-
-module.exports = {
-  STATUS_ENUM
-};

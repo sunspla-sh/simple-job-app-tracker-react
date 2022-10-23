@@ -101,9 +101,11 @@ importers:
 
   packages/react-jobapp:
     specifiers:
+      api: workspace:*
       react: ^18.2.0
       react-auth: workspace:*
     dependencies:
+      api: link:../../apps/api
       react: 18.2.0
       react-auth: link:../react-auth
 

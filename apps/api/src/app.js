@@ -1,8 +1,8 @@
-const express = require('express');
-const morgan = require('morgan');
-const cors = require('cors');
+import express from 'express';
+import morgan from 'morgan';
+import cors from 'cors';
 
-const { isAuthenticated } = require('./middlewares/jwt.middleware');
+import { isAuthenticated } from './middlewares/jwt.middleware.js';
 
 const app = express();
 
@@ -18,12 +18,12 @@ app.use(cors('*'));
 
 app.use(express.json());
 
-const authRouter = require('./routes/auth.routes');
+import authRouter from './routes/auth.routes.js';
 app.use('/auth', authRouter);
 
 
-const jobAppRouter = require('./routes/jobApp.routes');
-app.use('/api', isAuthenticated, jobAppRouter);
+import jobAppRouter from './routes/jobApp.routes.js';
+app.use('/api/jobapp', isAuthenticated, jobAppRouter);
 
 app.use((req, res, next) => {
   res.status(404).json({
@@ -41,4 +41,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = app;
+export default app;

@@ -10,9 +10,9 @@ router.get('/daily-count', dailyCountController);
 
 router.post('/create', createController);
 
-router.put('/edit/:id', editController);
+router.put('/:id/edit', editController);
 
-router.delete('/delete/:id', deleteController);
+router.delete('/:id/delete', deleteController);
 
 //route for fetching favicons
 //https://t2.gstatic.com/faviconV2?client=SOCIAL&type=FAVICON&fallback_opts=TYPE,SIZE,URL&url=http://travis-ci.com&size=32

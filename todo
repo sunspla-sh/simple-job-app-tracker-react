@@ -14,25 +14,25 @@
 [] api - password reset route
 [] api - jobapp routes
   [x] api - jobapp create route
-  [] api - jobapp edit route
+  [x] api - jobapp edit route
   [] api - jobapp delete route
 [] api - note routes
   [] api - note create route
   [] api - note edit route
   [] api - note delete route
-[] api - prisma update
-  [] api - prisma migrate dev
-  [] api - prisma generate client
 [x] react-auth - AuthProvider component
 [x] react-auth - SignupForm component
 [x] react-auth - LoginForm component
+[] react-ui - move components into react-jobapp and leave empty for now
+[] web - subscriptions for newly created jobs
+[] web - subscriptions for daily count - refresh at end of day 
 [] web - job application report table
 [] web - single jobapp page
   [] web - single jobapp edit component
   [] web - single note edit component
 [] web - styling
   [x] web - desktop navbar
-  [] web - max width signup/login
+  [x] web - max width signup/login
   [] web - max width navbar and page content
 [x] crx - set up memory router
 [x] crx - login page

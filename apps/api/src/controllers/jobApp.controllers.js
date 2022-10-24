@@ -28,6 +28,41 @@ export const allController = async (req, res, next) => {
   
 };
 
+export const singleController = async (req, res, next) => {
+  
+  //get user from payload
+  const { id: userId } = req.payload;
+  
+  const { id: jobAppId } = req.params;
+
+  //get user jobapps with prisma client
+  try {
+    
+    //returns one jobapp or null if not found
+    const foundJobApp = await prisma.jobApp.findUnique({
+      where: {
+        id: jobAppId
+      }
+    });
+
+    //send 400 code and error if jobapp is null or userId does not match
+    if(!foundJobApp || foundJobApp.userId !== userId){
+      return res.status(400).json({
+        error: {
+          message: 'job app not found'
+        }
+      });
+    }
+
+    res.json(jobApps);
+
+  } catch(err) {
+    next(err);
+  }
+
+  
+};
+
 export const dailyCountController = async (req, res, next) => {
 
   //get user from payload

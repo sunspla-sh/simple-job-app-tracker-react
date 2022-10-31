@@ -205,23 +205,7 @@ export const editController = async (req, res, next) => {
   //get jobApp id from payload
   const { id: jobAppId } = req.params;
 
-  try {
-    const foundJobApp = await prisma.jobApp.findUnique({
-      where: {
-        id: jobAppId
-      }
-    });
-    if(foundJobApp.userId !== userId) {
-      return res.status(400).json({
-        error: {
-          message: 'job app not found'
-        }
-      });
-    }
-  } catch (err) {
-    next(err)
-  }
-
+  //get jobApp info out of body
   const { title, description, company, companyUrl, status } = req.body;
 
   /**
@@ -294,9 +278,10 @@ export const editController = async (req, res, next) => {
   }
 
   try {
-    await prisma.jobApp.update({
+    const { count } = await prisma.jobApp.updateMany({
       where: {
         id: jobAppId,
+        userId
       },
       data: {
         title,
@@ -307,6 +292,14 @@ export const editController = async (req, res, next) => {
         userId
       }
     });
+
+    if(count === 0){
+      return res.status(400).json({
+        error: {
+          message: 'job app not found'
+        }
+      });
+    }
     res.status(200).json({
       success: true
     });
@@ -319,17 +312,30 @@ export const editController = async (req, res, next) => {
 export const deleteController = async (req, res, next) => {
 
   //get user from payload
+  const { id: userId } = req.payload;
 
   //get jobapp id from route params
+  const { id: jobAppId } = req.params;
 
-  //check that jobapp belongs to user
+  try {
+    const { count } = await prisma.jobApp.deleteMany({
+      where: {
+        id: jobAppId,
+        userId
+      }
+    });
+    if(count === 0){
+      return res.status(400).json({
+        error: {
+          message: 'job app not found'
+        }
+      });
+    }
+    res.status(200).json({
+      success: true
+    });
+  } catch (err) {
+    next(err);
+  }
   
-    //if false
-    
-      //return error message in res (forbidden)
-
-    //else
-    
-      //return success message in res
-
 }

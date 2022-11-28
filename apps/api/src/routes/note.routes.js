@@ -1,13 +1,14 @@
 import express from 'express';
 
 //import controllers here
+import { allController, createController, editController, deleteController } from '../controllers/note.controllers';
 
 const router = express.Router();
 
-router.get('/all', (req, res, next) => {})
+router.get('/all', allController);
 
-router.post('/create', (req, res, next) => {})
+router.post('/create', createController);
 
-router.put('/:id/edit', (req, res, next) => {})
+router.put('/:id/edit', editController);
 
-router.delete('/:id/delete', (req, res, next) => {})
+router.delete('/:id/delete', deleteController);

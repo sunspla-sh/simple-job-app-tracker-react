@@ -144,3 +144,38 @@ export const verifyController = (req, res, next) => {
   res.status(200).json(req.payload);
 
 };
+
+export const requestPasswordResetController = (req, res, next) => {
+
+  /**
+   * generate crypto token
+   * 
+   * store in db
+   * 
+   * email with password reset link
+   * 
+   * respond with okay
+   * 
+   */
+
+};
+
+export const passwordResetController = (req, res, next) => {
+  
+  /**
+   *  get valid token and new password from body
+   * 
+   *  check token validity
+   * 
+   *  check password
+   * 
+   *  hash password
+   * 
+   *  update password in database
+   * 
+   *  delete token from database
+   * 
+   *  force user to log in again (front end)
+   */
+
+};

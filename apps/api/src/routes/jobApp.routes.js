@@ -1,10 +1,14 @@
 import express from 'express';
 
-import { allController, dailyCountController, createController, editController, deleteController } from '../controllers/jobApp.controllers.js';
+import { allController, dailyCountController, createController, editController, deleteController, singleController } from '../controllers/jobApp.controllers.js';
 
 const router = express.Router();
 
+//get all of a user's jobapps
 router.get('/all', allController);
+
+//get
+router.get('/:id', singleController);
 
 router.get('/daily-count', dailyCountController);
 

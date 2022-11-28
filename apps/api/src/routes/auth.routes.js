@@ -1,6 +1,6 @@
 import express from 'express';
 import { isAuthenticated } from '../middlewares/jwt.middleware.js';
-import { signupController, loginController, verifyController } from '../controllers/auth.controllers.js';
+import { signupController, loginController, verifyController, requestPasswordResetController, passwordResetController } from '../controllers/auth.controllers.js';
 
 
 const router = express.Router();
@@ -15,25 +15,8 @@ router.post('/login', loginController);
 //this route verifies that we signed the jwt and sends back the decoded user data
 router.get('/verify', isAuthenticated, verifyController);
 
-//router.get('/request-reset-password', (req, res, next) => {
+router.get('/request-password-reset', requestPasswordResetController);
 
-  //check if email
-
-  //check if user exists
-
-  //figure it out from here - idk generate some unique hash or some shit and send in an email???
-
-//})
-
-
-//router.get('/reset-password', (req, res, next) => {
-
-  //check if email
-
-  //check if user exists
-
-  //figure it out from here - idk generate some unique hash or some shit and send in an email???
-
-//})
+router.get('/password-reset', passwordResetController);
 
 export default router;

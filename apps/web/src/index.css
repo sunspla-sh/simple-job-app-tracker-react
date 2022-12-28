@@ -245,6 +245,12 @@ body {
   text-align: center;
 }
 
+.jobapp_list-none-found {
+  text-align: center;
+  color: var(--tertiary-text);
+  margin: 5rem 2rem;
+}
+
 .jobapp_container {
   border: 1px solid var(--primary-text);
   border-radius: 5px;

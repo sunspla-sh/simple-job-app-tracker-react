@@ -17,7 +17,7 @@ export const JobAppList = () => {
       } catch (err) {
         console.log('error fetching jobapps: ', err)
       }
-    })()
+    })();
   }, []);
 
   return (
@@ -27,6 +27,9 @@ export const JobAppList = () => {
       </div>
       <div>
         {jobApps.map(jobApp => <JobApp {...jobApp} key={jobApp.id} />)}
+        {!jobApps.length && (
+          <h3 className='jobapp_list-none-found'>No job applications found. Get to work!</h3>
+        )}
       </div>
     </div>
   );

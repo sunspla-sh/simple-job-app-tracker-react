@@ -15,8 +15,8 @@ router.post('/login', loginController);
 //this route verifies that we signed the jwt and sends back the decoded user data
 router.get('/verify', isAuthenticated, verifyController);
 
-router.get('/request-password-reset', requestPasswordResetController);
+router.post('/request-password-reset', requestPasswordResetController);
 
-router.get('/password-reset', passwordResetController);
+router.post('/password-reset', passwordResetController);
 
 export default router;

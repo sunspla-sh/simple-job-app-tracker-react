@@ -9,21 +9,24 @@
   [x] setup react-auth
 [x] api - auth routes with jwt
 [x] api - prisma with sqlite3
+  [x] api - prisma add firstname lastname to user model
 [x] api - reset sqlite database, prisma migrate and generate client
-[] api - request password reset route
-[] api - password reset route
-[] api - jobapp routes
+[x] api - request password reset route
+  [x] api - update request password reset email with name of user
+[x] api - password reset success route
+  [x] api - password reset success email with name of user
+[x] api - jobapp routes
   [x] api - jobapp create route
   [x] api - jobapp edit route
-  [] api - jobapp delete route
-[] api - note routes
-  [] api - note create route
-  [] api - note edit route
-  [] api - note delete route
+  [x] api - jobapp delete route
+[x] api - note routes
+  [x] api - note create route
+  [x] api - note edit route
+  [x] api - note delete route
 [x] react-auth - AuthProvider component
 [x] react-auth - SignupForm component
 [x] react-auth - LoginForm component
-[] react-ui - move components into react-jobapp and leave empty for now
+[x] react-ui - move components into react-jobapp and leave empty for now
 [] web - subscriptions for newly created jobs
 [] web - subscriptions for daily count - refresh at end of day 
 [] web - job application report table
@@ -43,7 +46,7 @@
 [] crx - protect routes
 [] crx - styling
 [] chron - for sending daily text/telegram/whatsapp/slack/discord/email message report
-[] local scope for CSS?
-[] custom rollup config for chrome-extension?
-[] switch to react-router-dom outlets?
+[x] local scope for CSS?
+[x] custom rollup config for chrome-extension?
+[x] switch to react-router-dom outlets?
 [] fly.io deployment config

@@ -1,0 +1,1 @@
+//send an email report daily and list number of job applications for each user

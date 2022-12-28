@@ -5,13 +5,17 @@ datasource db {
 
 generator client {
   provider  = "prisma-client-js"
+  output    = "./generated/client"
 }
 
 model User {
   id                  String                @id @default(uuid())
   email               String                @unique
+  firstName           String
+  lastName            String
   password            String      
   createdAt           DateTime              @default(now())
+  updatedAt   DateTime    @updatedAt
   jobApps             JobApp[]
   passwordResetToken  PasswordResetToken?
 }
@@ -23,7 +27,7 @@ model JobApp {
   company     String
   companyUrl  String
   status      String
-  user        User        @relation(fields: [userId], references: [id])
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String
   notes       Note[]
   createdAt   DateTime    @default(now())
@@ -34,7 +38,7 @@ model PasswordResetToken {
   id          String      @id @default(uuid())
   createdAt   DateTime    @default(now())
   token       String      
-  user        User        @relation(fields: [userId], references: [id])
+  user        User        @relation(fields: [userId], references: [id], onDelete: Cascade)
   userId      String      @unique
 }
 
@@ -43,6 +47,6 @@ model Note {
   createdAt   DateTime    @default(now())
   updatedAt   DateTime    @updatedAt
   content     String
-  jobApp      JobApp      @relation(fields: [jobAppId], references: [id])
+  jobApp      JobApp      @relation(fields: [jobAppId], references: [id], onDelete: Cascade)
   jobAppId    String
 }

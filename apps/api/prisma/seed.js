@@ -1,12 +1,12 @@
-const { PrismaClient } = require('@prisma/client');
-const bcryptjs = require('bcryptjs');
-
-const prisma = new PrismaClient();
+import { prisma } from '../src/db.js';
+import bcryptjs from 'bcryptjs';
 
 const userData = [
   {
     email: 'test@bob.com',
     password: bcryptjs.hashSync('p4ssw0rd'),
+    firstName: 'bob',
+    lastName: 'smith',
     jobApps: {
       create: [
         {

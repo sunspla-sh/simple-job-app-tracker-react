@@ -7,12 +7,11 @@ const router = express.Router();
 //get all of a user's jobapps
 router.get('/all', allController);
 
-//get
-router.get('/:id', singleController);
-
 router.get('/daily-count', dailyCountController);
 
 router.post('/create', createController);
+
+router.get('/:id', singleController);
 
 router.put('/:id/edit', editController);
 

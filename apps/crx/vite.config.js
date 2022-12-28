@@ -5,6 +5,9 @@ import manifest from './manifest.json'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  server: {
+    port: process.env.CRX_PORT
+  },
   plugins: [
     react(),
     crx({ manifest })

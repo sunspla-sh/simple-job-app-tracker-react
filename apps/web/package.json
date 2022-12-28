@@ -12,7 +12,6 @@
     "@js-temporal/polyfill": "^0.4.2",
     "react": "^18.2.0",
     "react-auth": "workspace:*",
-    "react-ui": "workspace:*",
     "react-jobapp": "workspace:*",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.4.1"

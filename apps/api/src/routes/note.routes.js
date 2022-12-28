@@ -1,14 +1,20 @@
 import express from 'express';
 
 //import controllers here
-import { allController, createController, editController, deleteController } from '../controllers/note.controllers';
+import { createController, editController, deleteController } from '../controllers/note.controllers.js';
 
-const router = express.Router();
+const router = express.Router({ mergeParams: true });
 
-router.get('/all', allController);
+/**
+ * GET /all is currently unused because the jobApp GET /:id route
+ * retrieves a single job app and includes all of its notes
+ */
+// router.get('/all', allController);
 
 router.post('/create', createController);
 
-router.put('/:id/edit', editController);
+router.put('/:noteId/edit', editController);
 
-router.delete('/:id/delete', deleteController);
+router.delete('/:noteId/delete', deleteController);
+
+export default router;

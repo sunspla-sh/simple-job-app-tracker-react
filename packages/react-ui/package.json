@@ -10,7 +10,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@js-temporal/polyfill": "^0.4.2",
     "react": "^18.2.0"
   }
 }

@@ -73,7 +73,6 @@ importers:
       react-dom: ^18.2.0
       react-jobapp: workspace:*
       react-router-dom: ^6.4.1
-      react-ui: workspace:*
       vite: ^3.1.0
     dependencies:
       '@js-temporal/polyfill': 0.4.2
@@ -82,7 +81,6 @@ importers:
       react-dom: 18.2.0_react@18.2.0
       react-jobapp: link:../../packages/react-jobapp
       react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
-      react-ui: link:../../packages/react-ui
     devDependencies:
       '@types/react': 18.0.21
       '@types/react-dom': 18.0.6
@@ -101,20 +99,20 @@ importers:
 
   packages/react-jobapp:
     specifiers:
+      '@js-temporal/polyfill': ^0.4.2
       api: workspace:*
       react: ^18.2.0
       react-auth: workspace:*
     dependencies:
+      '@js-temporal/polyfill': 0.4.2
       api: link:../../apps/api
       react: 18.2.0
       react-auth: link:../react-auth
 
   packages/react-ui:
     specifiers:
-      '@js-temporal/polyfill': ^0.4.2
       react: ^18.2.0
     dependencies:
-      '@js-temporal/polyfill': 0.4.2
       react: 18.2.0
 
 packages:

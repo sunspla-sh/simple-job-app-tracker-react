@@ -23,12 +23,15 @@
   [x] api - note create route
   [x] api - note edit route
   [x] api - note delete route
+[] api - websockets
+  [] api - socket auth and room
+  [] api - socket job app event/job app response event
 [x] react-auth - AuthProvider component
 [x] react-auth - SignupForm component
 [x] react-auth - LoginForm component
 [x] react-ui - move components into react-jobapp and leave empty for now
 [] web - subscriptions for newly created jobs
-[] web - subscriptions for daily count - refresh at end of day 
+[] web - daily count - refresh at end of day
 [] web - job application report table
 [] web - single jobapp page
   [] web - single jobapp edit component

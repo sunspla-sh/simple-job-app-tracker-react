@@ -1,4 +1,3 @@
-import socketIo from 'socket.io-client';
 import { Route, Routes } from 'react-router-dom';
 
 import { Navbar } from './components/Navbar';
@@ -9,8 +8,6 @@ import { DashboardPage } from './pages/DashboardPage';
 import { FAQPage } from './pages/FAQPage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
-
-const socket = socketIo.connect('http://localhost:3000')
 
 function App() {
 

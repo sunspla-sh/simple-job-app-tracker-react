@@ -1,13 +1,20 @@
+import './config.js'; //should be first because dotenv happens in here
+
 import { createServer as createHttpServer } from 'http';
 import { Server as SocketIoServer } from 'socket.io';
 
-import './config.js';
+import { isAuthenticated } from './middlewares/jwt.middleware.js';
 
 import { prisma } from './db.js';
 
 import app from './app.js';
 
 const port = process.env.API_PORT;
+
+// const wrap = middleware => (socket, next) => {
+//   console.log(socket.request)
+//   middleware(socket.request, {}, next);
+// }
 
 const server = createHttpServer(app);
 
@@ -16,6 +23,16 @@ const ws = new SocketIoServer(server, {
     origin: '*'
   }
 });
+
+ws.use((socket, next) => {
+  const { authToken } = socket.handshake.auth;
+  if(authToken){
+    console.log(authToken);
+    next();
+  } else {
+    next(new Error('credentials_required'))
+  }
+})
 
 ws.on('connection', socket => {
   console.log(`⚡: ${socket.id} user just connected!`);
@@ -30,8 +47,8 @@ server.listen(port, () => {
 
 process.on('SIGTERM', () => {
   console.log('shutting down...');
-  // ws.cl
-  server.close(async () => {
+  //closes websocket connections and also closes http server
+  ws.close(async () => {
     console.log('server closed');
     await prisma.$disconnect();
     console.log('prisma disconnected')
@@ -41,7 +58,8 @@ process.on('SIGTERM', () => {
 //nodemon sends this when shutting down
 process.on('SIGUSR2', () => {
   console.log('shutting down...');
-  server.close(async () => {
+  //closes websocket connections and also closes http server
+  ws.close(async () => {
     console.log('server closed');
     await prisma.$disconnect();
     console.log('prisma disconnected')

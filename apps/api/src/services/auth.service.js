@@ -1,10 +1,10 @@
 import bcryptjs from 'bcryptjs';
 import { randomBytes } from 'crypto';
-import jwt from 'jsonwebtoken';
-import { promisify } from 'util';
 
-const jwtSign = promisify(jwt.sign);
+import { promisify } from 'util';
 const cryptoRandomBytes = promisify(randomBytes);
+
+import { jwtSign } from '../utils/jwt/jwtSign.js';
 
 import { prisma } from '../db.js';
 

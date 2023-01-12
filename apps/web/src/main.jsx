@@ -18,7 +18,9 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       logInUrl: `${baseUrl}/auth/login`,
       verifyUrl: `${baseUrl}/auth/verify`,
     }}>
-      <WSProvider>
+      <WSProvider config={{
+        baseUrl
+      }}>
         <JobAppProvider
           config={{
             getJobAppsUrl: `${baseUrl}/api/jobapp/all`,

@@ -1,9 +1,11 @@
 import { useState, useEffect, useContext } from 'react';
+import { WSContext } from 'react-ws'
 import { JobAppContext } from '../contexts/JobAppContext';
 
 export const JobAppDailyCount = () => {
 
   const { jobAppService } = useContext(JobAppContext);
+  const { socket } = useContext(WSContext);
 
   const [isLoading, setIsLoading] = useState(true);
   const [dailyCount, setDailyCount] = useState(null);
@@ -22,7 +24,22 @@ export const JobAppDailyCount = () => {
         setIsLoading(false);
       }
     })()
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    if(socket){
+      const handleDailyCount = () => setDailyCount(dailyCount + 1);
+      const handleDailyCountReset = () => setDailyCount(0);
+      socket.on('jobapp:create', handleDailyCount);
+      socket.on('jobapp:daily-count-reset', handleDailyCountReset);
+      return () => {
+        socket.off('jobapp:create', handleDailyCount);
+        socket.off('jobapp:daily-count-reset', handleDailyCountReset);
+      };
+    }
+  }, [socket]);
+
+
 
   return (
     <div className='jobappdailycount_container'>

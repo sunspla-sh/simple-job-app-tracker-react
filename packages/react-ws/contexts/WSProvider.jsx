@@ -7,16 +7,18 @@ import { AuthContext } from "react-auth";
 
 export const WSProvider = ({ children, config }) => {
 
+  const { baseUrl } = config;
+
   const { isLoggedIn, authService } = useContext(AuthContext);
 
   const [socket, setSocket] = useState(null);
 
-  //DO WE NEED A SERVICE? WHAT SHOULD IT DO?
+  //DO WE NEED A SERVICE? PROBABLY, BUT LET'S GET A BETA DEPLOYED FIRST
 
   useEffect(() => {
     
     if(isLoggedIn){ //open connection
-      const s = io('http://localhost:3000', {
+      const s = io(baseUrl, {
         auth: {
           authToken: authService.retrieveAuthToken()
         }
@@ -37,7 +39,9 @@ export const WSProvider = ({ children, config }) => {
   }, [isLoggedIn]);
 
   return (
-    <WSContext.Provider value={socket}>
+    <WSContext.Provider value={{
+      socket
+    }}>
       { children }
     </WSContext.Provider>
   );

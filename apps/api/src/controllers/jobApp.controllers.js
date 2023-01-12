@@ -1,3 +1,4 @@
+import { ws } from '../ws.js';
 import { JobAppService } from '../services/jobApp.service.js';
 const jobAppService = new JobAppService();
 
@@ -79,6 +80,9 @@ export const createController = async (req, res, next) => {
     });
 
     res.status(201).json(createdJobApp);
+
+    //emit job app here using websockets
+    ws.to(userId).emit('jobapp:create', createdJobApp);
 
   } catch(err) {
     next(err);

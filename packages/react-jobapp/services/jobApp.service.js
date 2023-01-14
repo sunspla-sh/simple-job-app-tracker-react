@@ -1,9 +1,10 @@
 
 export class JobAppService {
 
-  constructor({ retrieveAuthToken, getJobAppsUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl }){
+  constructor({ retrieveAuthToken, getJobAppsUrl, getJobAppUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl }){
     this.retrieveAuthToken = retrieveAuthToken;
     this.getJobAppsUrl = getJobAppsUrl;
+    this.getJobAppUrl = getJobAppUrl;
     this.getJobAppsDailyCountUrl = getJobAppsDailyCountUrl;
     this.postJobAppUrl = postJobAppUrl;
     this.deleteJobAppUrl = deleteJobAppUrl;
@@ -16,6 +17,26 @@ export class JobAppService {
   async getJobApps(){
     try {
       const res = await fetch(this.getJobAppsUrl, {
+        headers: {
+          authorization: `Bearer ${this.retrieveAuthToken()}`,
+        }
+      });
+      const json = await res.json();
+
+      if(json.error){
+        throw new Error(json.error.message);
+      }
+
+      return json;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async getJobApp(jobAppId){
+    try {
+      console.log(`${this.getJobAppUrl}/${jobAppId}`)
+      const res = await fetch(`${this.getJobAppUrl}/${jobAppId}`, {
         headers: {
           authorization: `Bearer ${this.retrieveAuthToken()}`,
         }

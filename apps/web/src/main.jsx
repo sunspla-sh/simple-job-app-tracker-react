@@ -24,6 +24,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <JobAppProvider
           config={{
             getJobAppsUrl: `${baseUrl}/api/jobapp/all`,
+            getJobAppUrl: `${baseUrl}/api/jobapp`,
             getJobAppsDailyCountUrl: `${baseUrl}/api/jobapp/daily-count`,
             postJobAppUrl: `${baseUrl}/api/jobapp/create`,
             deleteJobAppUrl: `${baseUrl}/api/jobapp/delete`

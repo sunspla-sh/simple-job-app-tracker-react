@@ -8,6 +8,7 @@ import { DashboardPage } from './pages/DashboardPage';
 import { FAQPage } from './pages/FAQPage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
+import { JobAppPage } from './pages/JobAppPage';
 
 function App() {
 
@@ -39,6 +40,14 @@ function App() {
             element={
               <AuthOnly>
                 <DashboardPage />
+              </AuthOnly>
+            }
+          />
+          <Route
+            path='/jobapp/:jobAppId'
+            element={
+              <AuthOnly>
+                <JobAppPage />
               </AuthOnly>
             }
           />

@@ -188,6 +188,104 @@ body {
 
 }
 
+.jobapp_page .jobapp_page-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobapp_page .jobapp_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.jobapp_page .jobapp_page-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobapp_page .jobapp_page-title-container .jobapp_page-title-back-link {
+  text-decoration: none;
+  margin: 2rem 0 1rem 0;
+}
+
+.jobapp_page .jobapp_page-title-container .jobapp_page-title-back-button {
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--tertiary-text);
+  border-radius: 5px;
+  border: 1px solid var(--primary-text);
+  background-color: var(--secondary-background);
+  cursor: pointer;
+}
+
+.jobapp_page .jobapp_page-title-container .jobapp_page-title-back-button svg {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.jobapp_page .jobapp_page-title-container .jobapp_page-title-back-button span {
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.jobapp_page .jobapp_page-notes-title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.jobapp_page .jobapp_page-notes-title-container .jobapp_page-notes-title {
+  color: var(--primary-text);
+  font-weight: 900;
+  font-size: 2rem;
+  text-align: center;
+}
+
+.jobapp_page .jobapp_page-notes-title-container .jobapp_page-notes-create-container {
+  align-self: stretch;
+}
+
+.note_container {
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.note_create-button{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--tertiary-text);
+  border-radius: 5px;
+  border: 1px solid var(--primary-text);
+  background-color: var(--secondary-background);
+  cursor: pointer;
+}
+
+.note_create-button svg{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.note_create-button span{
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
 .timeremaining_container {
 
 }
@@ -260,6 +358,11 @@ body {
   font-weight: bold;
 }
 
+/* .jobapp_container:hover {
+  transform: translateY(-3px);
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px, rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+} */  
+
 .jobapp_container .jobapp_company {
   margin-bottom: 1rem;
 }
@@ -286,7 +389,7 @@ body {
 
 .jobapp_container .jobapp_title .jobapp_title-value {
   color: var(--secondary-text);
-  font-size: 1rem;
+  font-size: 1.25rem;
   font-weight: 900;
 }
 
@@ -301,7 +404,7 @@ body {
 
 .jobapp_container .jobapp_description .jobapp_description-value {
   color: var(--tertiary-text);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 900;
 }
 
@@ -314,9 +417,15 @@ body {
   font-size: 0.75rem;
 }
 
+.jobapp_container .jobapp_companyUrl .jobapp_companyUrl-value{
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
 .jobapp_container .jobapp_companyUrl .jobapp_companyUrl-value a {
   color: var(--tertiary-text);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 900;
 }
 
@@ -331,7 +440,7 @@ body {
 
 .jobapp_container .jobapp_createdAt .jobapp_createdAt-value {
   color: var(--tertiary-text);
-  font-size: 0.75rem;
+  font-size: 1rem;
   font-weight: 900;
 }
 

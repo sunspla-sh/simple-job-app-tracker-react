@@ -3,7 +3,7 @@ Date.prototype.toTemporalInstant = toTemporalInstant;
 
 const capitalizeAllWords = s => s.split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
 
-export const JobApp = ( {  company, companyUrl, description, createdAt, title, id  }) => {
+export const JobApp = ( {  company, companyUrl, description, createdAt, title, status, id, listMode  }) => {
 
   const createdAtTemporal = Temporal.Instant.from(createdAt).toZonedDateTimeISO('America/New_York').toPlainDate().toString();
 
@@ -37,10 +37,24 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, title, i
         <div className="jobapp_companyUrl-descriptor">
           Company URL
         </div>
-        <div className="jobapp_companyUrl-value">
-          <a href={companyUrl} target="_blank">
+        {listMode ? (
+          <div className="jobapp_companyUrl-value">
             {companyUrl}
-          </a>
+          </div>
+        ) : (
+          <div className="jobapp_companyUrl-value">
+            <a href={`https://${companyUrl}`} target="_blank">
+              {companyUrl}
+            </a>
+          </div>
+        )}
+      </div>
+      <div className="jobapp_createdAt">
+        <div className="jobapp_createdAt-descriptor">
+          Status
+        </div>
+        <div className="jobapp_createdAt-value">
+          {status}
         </div>
       </div>
       <div className="jobapp_createdAt">

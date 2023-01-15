@@ -80,6 +80,7 @@ importers:
       react-auth: workspace:*
       react-dom: ^18.2.0
       react-jobapp: workspace:*
+      react-note: workspace:*
       react-router-dom: ^6.4.1
       react-ws: workspace:*
       socket.io-client: ^4.5.4
@@ -90,6 +91,7 @@ importers:
       react-auth: link:../../packages/react-auth
       react-dom: 18.2.0_react@18.2.0
       react-jobapp: link:../../packages/react-jobapp
+      react-note: link:../../packages/react-note
       react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
       react-ws: link:../../packages/react-ws
       socket.io-client: 4.5.4
@@ -124,7 +126,10 @@ importers:
       react-ws: link:../react-ws
 
   packages/react-note:
-    specifiers: {}
+    specifiers:
+      react-auth: workspace:*
+    dependencies:
+      react-auth: link:../react-auth
 
   packages/react-ui:
     specifiers:

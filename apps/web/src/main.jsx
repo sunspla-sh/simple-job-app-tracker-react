@@ -8,8 +8,9 @@ import { BrowserRouter } from 'react-router-dom';
 import { AuthProvider } from 'react-auth';
 import { WSProvider } from 'react-ws';
 import { JobAppProvider } from 'react-jobapp';
+import { NoteProvider } from 'react-note';
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = 'http://localhost:3000';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
@@ -30,9 +31,17 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             deleteJobAppUrl: `${baseUrl}/api/jobapp/delete`
           }}
         >
-          <BrowserRouter>
-            <App />
-          </BrowserRouter>
+          <NoteProvider
+            config={{
+              createNoteUrl: `${baseUrl}/api/jobapp/:jobAppId/note/create`,
+              editNoteUrl: `${baseUrl}/api/jobapp/:jobAppId/note/:noteId/edit`,
+              deleteNoteUrl: `${baseUrl}/api/jobapp/:jobAppId/note/:noteId/delete`
+            }}
+          >
+            <BrowserRouter>
+              <App />
+            </BrowserRouter>
+          </NoteProvider>
         </JobAppProvider>
       </WSProvider>
     </AuthProvider>

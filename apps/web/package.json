@@ -15,6 +15,7 @@
     "react-auth": "workspace:*",
     "react-ws": "workspace:*",
     "react-jobapp": "workspace:*",
+    "react-note": "workspace:*",
     "react-router-dom": "^6.4.1",
     "socket.io-client": "^4.5.4"
   },

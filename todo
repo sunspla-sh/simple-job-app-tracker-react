@@ -39,8 +39,9 @@
 [] web - job application report table
 [] web - single jobapp page
   [] web - single jobapp edit component
-  [] web - single note create component
+  [x] web - single note create component
   [] web - single note edit component
+  [] web - note delete
 [] web - request password reset page
 [] web - password reset pages
 [] web - styling

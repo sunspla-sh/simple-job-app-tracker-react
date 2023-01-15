@@ -12,8 +12,12 @@ export class NoteService {
 
   async create({ content, jobAppId, userId }){
 
-    if(!content){
+    if(!content || typeof content !== 'string'){
       return Promise.reject(new Error('content is required'));
+    }
+
+    if(content.length > 1024){
+      return Promise.reject(new Error('content character count limit is 1024'))
     }
 
     try{

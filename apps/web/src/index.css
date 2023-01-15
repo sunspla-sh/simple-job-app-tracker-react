@@ -253,12 +253,102 @@ body {
 }
 
 .note_container {
+  position: relative;
   border: 1px solid var(--primary-text);
   border-radius: 5px;
   background-color: var(--secondary-background);
   padding: 1rem;
   margin: 1rem;
   font-weight: bold;
+}
+
+.note_container-create {
+  position: relative;
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.note_container .note_createdAt {
+  margin-bottom: 1rem;
+}
+
+.note_container .note_createdAt-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.note_container .note_createdAt-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.note_container .note_updatedAt {
+  margin-bottom: 1rem;
+}
+
+.note_container .note_updatedAt-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.note_container .note_updatedAt-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.note_container .note_content {
+  margin-bottom: 1rem;
+}
+
+.note_container .note_content-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.note_container .note_content-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.note_container-create .note_content {
+  display: flex;
+  flex-direction: column;
+}
+
+.note_container-create .note_content-descriptor {
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.note_container-create .note_content-value {
+  border-radius: 5px;
+  border: 1px solid var(--primary-text);
+}
+
+.note_container-create .note_submit-or-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.note_container-create .note_cancel-create-button {
+  flex: 1;
+  margin: 0.5rem 0.5rem 0 0;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.note_container-create .note_submit-create-button {
+  flex: 1;
+  margin: 0.5rem 0 0 0.5rem;
 }
 
 .note_create-button{
@@ -285,6 +375,35 @@ body {
   font-size: 1.2rem;
   padding-left: 0.5rem;
 }
+
+.note_edit-button-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-50%, 50%)
+}
+
+.note_edit-button{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--tertiary-text);
+  border: none;
+  background-color: rgba(0,0,0,0);
+  cursor: pointer;
+}
+
+.note_edit-button svg{
+  width: 2rem;
+}
+
+/* .note_edit-button span{
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+} */
 
 .timeremaining_container {
 

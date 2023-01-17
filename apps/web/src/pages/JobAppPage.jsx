@@ -57,7 +57,7 @@ export const JobAppPage = () => {
             </div>
             <div className='jobapp_page_notes-container'>
               {jobApp?.notes?.length ? (
-                jobApp.notes.map(note => <Note {...note} key={note.id} />)
+                jobApp.notes.map(note => <Note {...note} key={note.id} jobApp={jobApp} setJobApp={setJobApp} />)
               ) : (
                 <h3>No notes yet! Consider adding a note to track your application progress.</h3>
               )}

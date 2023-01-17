@@ -272,6 +272,16 @@ body {
   font-weight: bold;
 }
 
+.note_container-edit {
+  position: relative;
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
 .note_container .note_createdAt {
   margin-bottom: 1rem;
 }
@@ -317,6 +327,89 @@ body {
   font-weight: 900;
 }
 
+.note_container-edit .note_createdAt {
+  margin-bottom: 1rem;
+}
+
+.note_container-edit .note_createdAt-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.note_container-edit .note_createdAt-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.note_container-edit .note_updatedAt {
+  margin-bottom: 1rem;
+}
+
+.note_container-edit .note_updatedAt-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.note_container-edit .note_updatedAt-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.note_container-edit .note_content {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.note_container-edit .note_content-descriptor {
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.note_container-edit .note_content-value {
+  border-radius: 5px;
+  border: 1px solid var(--secondary-text);
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
+}
+
+.note_container-edit .note_submit-or-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.note_container-edit .note_cancel-edit-button {
+  flex: 1;
+  margin: 0.5rem 0.5rem 0 0;
+  background-color: var(--tertiary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.note_container-edit .note_submit-edit-button {
+  flex: 1;
+  margin: 0.5rem 0 0 0.5rem;
+  background-color: var(--secondary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 .note_container-create .note_content {
   display: flex;
   flex-direction: column;
@@ -330,7 +423,11 @@ body {
 
 .note_container-create .note_content-value {
   border-radius: 5px;
-  border: 1px solid var(--primary-text);
+  border: 1px solid var(--secondary-text);
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  font-family: "Nunito", sans-serif;
 }
 
 .note_container-create .note_submit-or-cancel {
@@ -342,13 +439,27 @@ body {
 .note_container-create .note_cancel-create-button {
   flex: 1;
   margin: 0.5rem 0.5rem 0 0;
-  padding-top: 0.5rem;
-  padding-bottom: 0.5rem;
+  background-color: var(--tertiary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .note_container-create .note_submit-create-button {
   flex: 1;
   margin: 0.5rem 0 0 0.5rem;
+  background-color: var(--secondary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
 }
 
 .note_create-button{
@@ -380,7 +491,7 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  transform: translate(-50%, 50%)
+  transform: translate(-1rem, 1rem)
 }
 
 .note_edit-button{
@@ -399,11 +510,41 @@ body {
   width: 2rem;
 }
 
-/* .note_edit-button span{
-  font-weight: 900;
-  font-size: 1.2rem;
+.note_edit-options-container {
+  flex-direction: column;
+  border: 1px solid var(--secondary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+}
+
+.note_edit-options-container .note_edit-option-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.note_edit-options-container .note_edit-option-item svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.note_edit-options-container .note_edit-option-item span {
   padding-left: 0.5rem;
-} */
+  flex: 1;
+}
+
+.note_edit-options-container .note_edit-option-item.close{
+  color: var(--tertiary-text);
+}
+
+.note_edit-options-container .note_edit-option-item.edit{
+  color: var(--primary-text);
+}
+
+.note_edit-options-container .note_edit-option-item.delete{
+  color: red;
+}
 
 .timeremaining_container {
 

@@ -35,7 +35,6 @@ export class JobAppService {
 
   async getJobApp(jobAppId){
     try {
-      console.log(`${this.getJobAppUrl}/${jobAppId}`)
       const res = await fetch(`${this.getJobAppUrl}/${jobAppId}`, {
         headers: {
           authorization: `Bearer ${this.retrieveAuthToken()}`,

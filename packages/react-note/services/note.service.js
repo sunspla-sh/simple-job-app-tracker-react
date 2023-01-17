@@ -33,7 +33,7 @@ export class NoteService {
 
   //   /api/jobapp/:jobAppId/note/:noteId/edit
   async editNote({ content, jobAppId, noteId }){
-    const url = this.editNoteUrl.replace(/\/:\w+\//, `${jobAppId}/`).replace(/\/:\w+\//, `${noteId}/`);
+    const url = this.editNoteUrl.replace(/\/:\w+\//, `/${jobAppId}/`).replace(/\/:\w+\//, `/${noteId}/`);
     const body = { content };
     try {
       const res = await fetch(url, {
@@ -56,7 +56,7 @@ export class NoteService {
 
   //   /api/jobapp/:jobAppId/note/:noteId/delete
   async deleteNote({ jobAppId, noteId }){
-    const url = this.deleteNoteUrl.replace(/\/:\w+\//, `${jobAppId}/`).replace(/\/:\w+\//, `${noteId}/`);
+    const url = this.deleteNoteUrl.replace(/\/:\w+\//, `/${jobAppId}/`).replace(/\/:\w+\//, `/${noteId}/`);
     try {
       const res = await fetch(url, {
         headers: {

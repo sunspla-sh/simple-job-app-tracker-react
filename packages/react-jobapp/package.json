@@ -12,6 +12,7 @@
   "dependencies": {
     "react-auth": "workspace:*",
     "react-ws": "workspace:*",
+    "react-ui": "workspace:*",
     "api": "workspace:*",
     "react": "^18.2.0",
     "@js-temporal/polyfill": "^0.4.2"

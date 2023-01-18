@@ -28,7 +28,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
             getJobAppUrl: `${baseUrl}/api/jobapp`,
             getJobAppsDailyCountUrl: `${baseUrl}/api/jobapp/daily-count`,
             postJobAppUrl: `${baseUrl}/api/jobapp/create`,
-            deleteJobAppUrl: `${baseUrl}/api/jobapp/delete`
+            deleteJobAppUrl: `${baseUrl}/api/jobapp/:jobAppId/delete`,
+            editJobAppUrl: `${baseUrl}/api/jobapp/:jobAppId/edit`,
           }}
         >
           <NoteProvider

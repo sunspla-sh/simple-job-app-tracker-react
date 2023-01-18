@@ -132,7 +132,7 @@ export class AuthService {
         this.JWT_SECRET,
         {
           algorithm: 'HS256',
-          expiresIn: '6h'
+          expiresIn: '365d'
         }
       );
       return Promise.resolve(authToken)

@@ -3,6 +3,7 @@ import { JobAppContext } from 'react-jobapp';
 import { Link } from 'react-router-dom';
 import { WSContext } from 'react-ws';
 import { JobApp } from '../components/JobApp';
+import { LoadingHeart } from 'react-ui';
 
 export const JobAppList = () => {
 
@@ -12,6 +13,10 @@ export const JobAppList = () => {
 
   const [jobApps, setJobApps] = useState([]);
 
+  const [isLoading, setIsLoading] = useState(true);
+
+  const [errorMessage, setErrorMessage] = useState(null);
+
   //fetch job apps
   useEffect(() => {
     (async () => {
@@ -20,6 +25,9 @@ export const JobAppList = () => {
         setJobApps(jobAppsArray);
       } catch (err) {
         console.log('error fetching jobapps: ', err)
+        setErrorMessage(err.message);
+      } finally {
+        setIsLoading(false);
       }
     })();
   }, []);
@@ -38,14 +46,31 @@ export const JobAppList = () => {
         <h2 className='jobapp_list-title'>Job Apps</h2>
       </div>
       <div>
+        {
+          isLoading && (
+            <div className='jobapp_list-loading'>
+              <LoadingHeart message={'Loading...'} />
+            </div>
+          )
+        }
+        {
+          !isLoading && !errorMessage && (
+            <JobApp listMode={true} createMode={true} jobApps={jobApps} setJobApps={setJobApps} />
+          )
+        }
         {jobApps.map(jobApp => (
           <Link to={`/jobapp/${jobApp.id}`} key={jobApp.id} style={{ textDecoration: 'none' }}>
             <JobApp {...jobApp} listMode={true} />
           </Link>
         ))}
-        {!jobApps.length && (
+        {!jobApps.length && !isLoading && !errorMessage && (
           <h3 className='jobapp_list-none-found'>No job applications found. Get to work!</h3>
         )}
+        { 
+          errorMessage && (
+            <p>err while loading jobapps: {errorMessage}</p>
+          )
+        }
       </div>
     </div>
   );

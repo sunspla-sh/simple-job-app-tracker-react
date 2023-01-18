@@ -31,12 +31,20 @@ app.use((req, res, next) => {
 });
 
 app.use((err, req, res, next) => {
-  console.log(err)
-  res.status(500).json({
-    error: {
-      message: err.message
-    }
-  });
+  console.log(err);
+  if(err?.status === 401 && err?.code === 'invalid_token'){
+    res.status(401).json({
+      error: {
+        message: err.message
+      }
+    });
+  } else {
+    res.status(500).json({
+      error: {
+        message: err.message
+      }
+    });
+  }
 });
 
 export default app;

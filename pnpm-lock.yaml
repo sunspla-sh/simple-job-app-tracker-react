@@ -76,23 +76,27 @@ importers:
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@vitejs/plugin-react': ^2.1.0
+      api: workspace:*
       react: ^18.2.0
       react-auth: workspace:*
       react-dom: ^18.2.0
       react-jobapp: workspace:*
       react-note: workspace:*
       react-router-dom: ^6.4.1
+      react-ui: workspace:*
       react-ws: workspace:*
       socket.io-client: ^4.5.4
       vite: ^3.1.0
     dependencies:
       '@js-temporal/polyfill': 0.4.2
+      api: link:../api
       react: 18.2.0
       react-auth: link:../../packages/react-auth
       react-dom: 18.2.0_react@18.2.0
       react-jobapp: link:../../packages/react-jobapp
       react-note: link:../../packages/react-note
       react-router-dom: 6.4.1_biqbaboplfbrettd7655fr4n2y
+      react-ui: link:../../packages/react-ui
       react-ws: link:../../packages/react-ws
       socket.io-client: 4.5.4
     devDependencies:
@@ -117,12 +121,14 @@ importers:
       api: workspace:*
       react: ^18.2.0
       react-auth: workspace:*
+      react-ui: workspace:*
       react-ws: workspace:*
     dependencies:
       '@js-temporal/polyfill': 0.4.2
       api: link:../../apps/api
       react: 18.2.0
       react-auth: link:../react-auth
+      react-ui: link:../react-ui
       react-ws: link:../react-ws
 
   packages/react-note:

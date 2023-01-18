@@ -8,7 +8,7 @@ export const JobAppProvider = ({ children, config }) => {
 
   const { authService } = useContext(AuthContext);
 
-  const { getJobAppsUrl, getJobAppUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl } = config;
+  const { getJobAppsUrl, getJobAppUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl, editJobAppUrl } = config;
 
   const jobAppService = new JobAppService({
     retrieveAuthToken: authService.retrieveAuthToken,
@@ -16,7 +16,8 @@ export const JobAppProvider = ({ children, config }) => {
     getJobAppUrl,
     getJobAppsDailyCountUrl,
     postJobAppUrl,
-    deleteJobAppUrl
+    deleteJobAppUrl,
+    editJobAppUrl
   });
 
   const value = {

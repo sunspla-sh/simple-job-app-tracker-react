@@ -3,7 +3,7 @@ import { Link, useParams } from 'react-router-dom';
 import { JobAppContext } from 'react-jobapp';
 import { JobApp } from '../components/JobApp';
 import { Note } from '../components/Note';
-import { LoadingHeart } from '../components/LoadingHeart/LoadingHeart';
+import { LoadingHeart } from 'react-ui';
 
 export const JobAppPage = () => {
 
@@ -12,10 +12,6 @@ export const JobAppPage = () => {
   const { jobAppId } = useParams();
 
   const [jobApp, setJobApp] = useState(null);
-
-  const [isCreatingNote, setIsCreatingNote] = useState(false);
-
-  const updateIsCreatingNote = () => setIsCreatingNote(!isCreatingNote);
 
   useEffect(() => {
    (async () => {
@@ -46,7 +42,7 @@ export const JobAppPage = () => {
       {jobApp ? (
         <>
           <div className='jobapp_page-jobapp'>
-            <JobApp {...jobApp} />
+            <JobApp {...jobApp} setJobApp={setJobApp} />
           </div>
           <div className='jobapp_page-notes'>
             <div className='jobapp_page-notes-title-container'>

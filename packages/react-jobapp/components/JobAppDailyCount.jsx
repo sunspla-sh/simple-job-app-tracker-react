@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from 'react';
 import { WSContext } from 'react-ws'
+import { LoadingHeart } from 'react-ui';
 import { JobAppContext } from '../contexts/JobAppContext';
 
 export const JobAppDailyCount = () => {
@@ -50,7 +51,7 @@ export const JobAppDailyCount = () => {
         {
           isLoading && (
             <div className='jobappdailycount_count-loading'>
-              Loading...
+              <LoadingHeart message={'Loading...'} />
             </div>
           )
         }

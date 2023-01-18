@@ -1,13 +1,14 @@
 
 export class JobAppService {
 
-  constructor({ retrieveAuthToken, getJobAppsUrl, getJobAppUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl }){
+  constructor({ retrieveAuthToken, getJobAppsUrl, getJobAppUrl, getJobAppsDailyCountUrl, postJobAppUrl, deleteJobAppUrl, editJobAppUrl }){
     this.retrieveAuthToken = retrieveAuthToken;
     this.getJobAppsUrl = getJobAppsUrl;
     this.getJobAppUrl = getJobAppUrl;
     this.getJobAppsDailyCountUrl = getJobAppsDailyCountUrl;
     this.postJobAppUrl = postJobAppUrl;
     this.deleteJobAppUrl = deleteJobAppUrl;
+    this.editJobAppUrl = editJobAppUrl;
   }
 
   /**
@@ -94,7 +95,7 @@ export class JobAppService {
       if(json.error){
         throw new Error(json.error.message);
       }
-      return json.success;
+      return json;
     } catch (err) {
       throw err;
     }
@@ -105,8 +106,9 @@ export class JobAppService {
    * @returns true - if job app was deleted successfully
    */
   async deleteJobApp(jobAppId){
+    const url = this.deleteJobAppUrl.replace(/\/:\w+\//, `/${jobAppId}/`);
     try {
-      const res = await fetch(`${this.deleteJobAppUrl}/${jobAppId}`, {
+      const res = await fetch(url, {
         headers: {
           authorization: `Bearer ${this.retrieveAuthToken()}`,
         },
@@ -117,7 +119,35 @@ export class JobAppService {
       if(json.error){
         throw new Error(json.error.message);
       }
-      return json.success;
+      return json;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * 
+   */
+  async editJobApp({ title, description, company, companyUrl, status, jobAppId }){
+    console.log(this.editJobAppUrl)
+    const url = this.editJobAppUrl.replace(/\/:\w+\//, `/${jobAppId}/`);
+    const body = { title, description, company, companyUrl, status };
+
+    try{
+      const res = await fetch(url, {
+        headers: {
+          authorization: `Bearer ${this.retrieveAuthToken()}`,
+          'Content-Type': 'application/json',
+        },
+        method: 'put',
+        body: JSON.stringify(body)
+      });
+      const json = await res.json();
+
+      if(json.error){
+        throw new Error(json.error.message);
+      }
+      return json;
     } catch (err) {
       throw err;
     }

@@ -32,19 +32,24 @@
   [] react-auth - add first name and last name to sign up form
 [x] react-auth - LoginForm component
 [x] react-ui - move components into react-jobapp and leave empty for now
-[] react-note - context, provider, service
-[] react-jobapp - add edit capabilities
+[x] react-note - context, provider, service
+[x] react-jobapp - add edit capabilities
 [x] web - emit for newly created jobs
 [x] web - daily count - refresh at end of day
-[] web - job application report table
 [] web - single jobapp page
   [] web - single jobapp edit component
+  [] web - single jobapp edit/create success/error message
+  [] web - single note edit/create success/error message
+  [] web - single jobapp description length shown on main page
   [x] web - single note create component
-  [] web - single note edit component
-  [] web - note delete
+  [x] web - single note edit component
+  [x] web - note delete
 [] web - request password reset page
 [] web - password reset pages
 [] web - styling
+  [] web - jobapp create styling
+  [] web - jobapp edit styling
+  [] web - jobapp page no notes text styling
   [x] web - desktop navbar
   [x] web - max width signup/login
   [] web - max width navbar and page content

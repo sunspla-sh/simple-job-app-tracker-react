@@ -252,6 +252,13 @@ body {
   align-self: stretch;
 }
 
+.jobapp_page .jobapp_page_notes-container h3 {
+  font-weight: 900;
+  color: var(--tertiary-text);
+  text-align: center;
+  margin: 1rem;
+}
+
 .note_container {
   position: relative;
   border: 1px solid var(--primary-text);
@@ -487,6 +494,20 @@ body {
   padding-left: 0.5rem;
 }
 
+.note_create-error-message {
+  color: red;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+.note_create-success-message {
+  color: var(--secondary-text);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
 .note_edit-button-container{
   position: absolute;
   top: 0;
@@ -544,6 +565,20 @@ body {
 
 .note_edit-options-container .note_edit-option-item.delete{
   color: red;
+}
+
+.note_edit-error-message {
+  color: red;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+.note_edit-success-message {
+  color: var(--secondary-text);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
 }
 
 .timeremaining_container {
@@ -752,6 +787,21 @@ body {
   color: var(--tertiary-text);
 }
 
+.jobapp_edit-error-message {
+  color: red;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin: 1rem;
+}
+
+.jobapp_edit-success-message {
+  color: var(--secondary-text);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
 
 @media (min-width: 800px){
 
@@ -813,6 +863,7 @@ body {
   .login_page .login_page-container {
     width: 400px;
   }
+
 }
 
 @media (min-width: 1200px){

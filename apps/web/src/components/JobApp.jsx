@@ -37,9 +37,13 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
     status: STATUS_ENUM[0]
   });
 
-  const [errorMessage, setErrorMessage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [successMessage, setSuccessMessage] = useState('');
+
+  const [errorEditMessage, setErrorEditMessage] = useState('');
+
+  const [successEditMessage, setSuccessEditMessage] = useState('');
 
   const toggleShowEditDropdown = () => setShowEditDropdown(!showEditDropdown);
 
@@ -76,7 +80,6 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
     e.preventDefault();
     try {
       const createdJobApp = await jobAppService.postJobApp(state);
-      console.log('posted jobapp: ', createdJobApp);
       setJobApps([
         createdJobApp,
         ...jobApps
@@ -88,11 +91,13 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         companyUrl: '',
         status: STATUS_ENUM[0]
       });
-      setErrorMessage(null);
+      setErrorMessage('');
+      toggleIsCreating();
       setSuccessMessage('Job App created successfully!');
-      setTimeout(() => setSuccessMessage(null), 5000);
+      setTimeout(() => setSuccessMessage(''), 5000);
     } catch (err) {
       setErrorMessage(err.message);
+      setTimeout(() => setErrorMessage(''), 5000);
     }
   }
 
@@ -124,8 +129,12 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         id: id
       });
       toggleIsEditing();
+      setSuccessEditMessage('Job App edited successfully!');
+      setTimeout(() => setSuccessEditMessage(''), 5000);
     } catch (err) {
       console.log('err while editing job app', err);
+      setErrorEditMessage(err.message);
+      setTimeout(() => setErrorEditMessage(''), 5000);
     }
 
   }
@@ -242,38 +251,37 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               {
                 errorMessage && (
                   <p>
-                    {
-                      errorMessage
-                    }
+                    Error: {errorMessage}
                   </p>
                 )
               }
             </div>
+            
+          </form>
+        ) : (
+          <>
+            <button
+              className='note_create-button'
+              onClick={toggleIsCreating}
+            > 
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
+                <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
+                <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
+              </svg>
+              <span>
+                Create Job App
+              </span>
+            </button>
             <div>
               {
                 successMessage && (
                   <p>
-                    {
-                      successMessage
-                    }
+                    {successMessage}
                   </p>
                 )
               }
             </div>
-          </form>
-        ) : (
-          <button
-            className='note_create-button'
-            onClick={toggleIsCreating}
-          > 
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-              <path d="M5.433 13.917l1.262-3.155A4 4 0 017.58 9.42l6.92-6.918a2.121 2.121 0 013 3l-6.92 6.918c-.383.383-.84.685-1.343.886l-3.154 1.262a.5.5 0 01-.65-.65z" />
-              <path d="M3.5 5.75c0-.69.56-1.25 1.25-1.25H10A.75.75 0 0010 3H4.75A2.75 2.75 0 002 5.75v9.5A2.75 2.75 0 004.75 18h9.5A2.75 2.75 0 0017 15.25V10a.75.75 0 00-1.5 0v5.25c0 .69-.56 1.25-1.25 1.25h-9.5c-.69 0-1.25-.56-1.25-1.25v-9.5z" />
-            </svg>
-            <span>
-              Create Job App
-            </span>
-          </button>
+          </>
         )}
       </>
     );
@@ -283,121 +291,108 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
 
   if(isEditing){
     return (
-      <form
-        className="note_container-create"
-        onSubmit={handleSubmitEditJobApp}
-      >
-        <div>
-          <label
-            htmlFor="company"
-          >
-            Company
-          </label>
-          <input
-            type="text"
-            id="company"
-            name="company"
-            value={editState.company}
-            onChange={updateEditState}
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="title"
-          >
-            Title
-          </label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={editState.title}
-            onChange={updateEditState}
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="description"
-          >
-            Description
-          </label>
-          <textarea
-            id="description"
-            name="description"
-            value={editState.description}
-            onChange={updateEditState}
-          >
-          </textarea>
-        </div>
-        <div>
-          <label
-            htmlFor="companyUrl"
-          >
-            Company URL
-          </label>
-          <input
-            type="text"
-            id="companyUrl"
-            name="companyUrl"
-            value={editState.companyUrl}
-            onChange={updateEditState}
-          />
-        </div>
-        <div>
-          <label
-            htmlFor="status"
-          >
-            Status
-          </label>
-          <select
-            name="status"
-            id="status"
-            value={editState.status}
-            onChange={updateEditState}
-          >
-            {STATUS_ENUM.map(s => (
-              <option value={s} key={s}>{s}</option>
-            ))}
-          </select>
-        </div>
-        <div className="note_submit-or-cancel">
-          <button
-            className="note_cancel-create-button"
-            type="button"
-            onClick={handleCancelEditJobApp}
-          >
-            Cancel
-          </button>
-          <button
-            className="note_submit-create-button"
-            type="submit"
-          >
-            Save
-          </button>
-        </div>
-        <div>
-          {
-            errorMessage && (
-              <p>
-                {
-                  errorMessage
-                }
-              </p>
-            )
-          }
-        </div>
-        <div>
-          {
-            successMessage && (
-              <p>
-                {
-                  successMessage
-                }
-              </p>
-            )
-          }
-        </div>
-      </form>
+      <>
+        <form
+          className="note_container-create"
+          onSubmit={handleSubmitEditJobApp}
+        >
+          <div>
+            <label
+              htmlFor="company"
+            >
+              Company
+            </label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              value={editState.company}
+              onChange={updateEditState}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="title"
+            >
+              Title
+            </label>
+            <input
+              type="text"
+              id="title"
+              name="title"
+              value={editState.title}
+              onChange={updateEditState}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="description"
+            >
+              Description
+            </label>
+            <textarea
+              id="description"
+              name="description"
+              value={editState.description}
+              onChange={updateEditState}
+            >
+            </textarea>
+          </div>
+          <div>
+            <label
+              htmlFor="companyUrl"
+            >
+              Company URL
+            </label>
+            <input
+              type="text"
+              id="companyUrl"
+              name="companyUrl"
+              value={editState.companyUrl}
+              onChange={updateEditState}
+            />
+          </div>
+          <div>
+            <label
+              htmlFor="status"
+            >
+              Status
+            </label>
+            <select
+              name="status"
+              id="status"
+              value={editState.status}
+              onChange={updateEditState}
+            >
+              {STATUS_ENUM.map(s => (
+                <option value={s} key={s}>{s}</option>
+              ))}
+            </select>
+          </div>
+          <div className="note_submit-or-cancel">
+            <button
+              className="note_cancel-create-button"
+              type="button"
+              onClick={handleCancelEditJobApp}
+            >
+              Cancel
+            </button>
+            <button
+              className="note_submit-create-button"
+              type="submit"
+            >
+              Save
+            </button>
+          </div>
+        </form>
+        {
+          errorEditMessage && (
+            <p className='jobapp_edit-error-message'>
+              Error: {errorEditMessage}
+            </p>
+          )
+        }
+      </>
     );
   }
 
@@ -433,9 +428,15 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         <div className="jobapp_description-descriptor">
           Description
         </div>
-        <div className="jobapp_description-value">
-          {description}
-        </div>
+        { listMode ? (
+          <div className="jobapp_description-value">
+            {description.length > 128 ? description.slice(0,128) + '... (click to see more)' : description}
+          </div>
+        ) : (
+          <div className="jobapp_description-value">
+            {description}
+          </div>
+        )}
       </div>          
       <div className="jobapp_companyUrl">
         <div className="jobapp_companyUrl-descriptor">
@@ -531,6 +532,13 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
           </div>
         </div>
       )}
+      {
+        successEditMessage && (
+          <p className='jobapp_edit-success-message'>
+            {successEditMessage}
+          </p>
+        )
+      }
     </div>
   );
 };

@@ -7,14 +7,14 @@ export class AuthService {
     this.verifyUrl = verifyUrl;
   }
 
-  async signUp({ email, password }){
+  async signUp({ email, password, firstName, lastName }){
     try {
       const res = await fetch(this.signUpUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
         },
-        body: JSON.stringify({ email, password })
+        body: JSON.stringify({ email, password, firstName, lastName })
       });
       const json = await res.json();
       //check for errors because fetch doesn't automatically throw an error with a 400 or 500 response code

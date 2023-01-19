@@ -29,18 +29,18 @@
   [x] api - socket middleware - debug jwt verify failure (expired token)?
 [x] react-auth - AuthProvider component
 [x] react-auth - SignupForm component
-  [] react-auth - add first name and last name to sign up form
+  [x] react-auth - add first name and last name to sign up form
 [x] react-auth - LoginForm component
 [x] react-ui - move components into react-jobapp and leave empty for now
 [x] react-note - context, provider, service
 [x] react-jobapp - add edit capabilities
 [x] web - emit for newly created jobs
 [x] web - daily count - refresh at end of day
-[] web - single jobapp page
-  [] web - single jobapp edit component
-  [] web - single jobapp edit/create success/error message
-  [] web - single note edit/create success/error message
-  [] web - single jobapp description length shown on main page
+[x] web - single jobapp page
+  [x] web - single jobapp edit component
+  [x] web - single jobapp edit/create success/error message
+  [x] web - single note edit/create success/error message
+  [x] web - single jobapp description length shown on main page
   [x] web - single note create component
   [x] web - single note edit component
   [x] web - note delete
@@ -49,7 +49,7 @@
 [] web - styling
   [] web - jobapp create styling
   [] web - jobapp edit styling
-  [] web - jobapp page no notes text styling
+  [x] web - jobapp page no notes text styling
   [x] web - desktop navbar
   [x] web - max width signup/login
   [] web - max width navbar and page content

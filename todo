@@ -53,6 +53,7 @@
   [x] web - desktop navbar
   [x] web - max width signup/login
   [] web - max width navbar and page content
+  [] web - verification email on signup
 [x] crx - set up memory router
 [x] crx - login page
 [x] crx - signup page

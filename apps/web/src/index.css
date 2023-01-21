@@ -321,6 +321,7 @@ body {
 
 .note_container .note_content {
   margin-bottom: 1rem;
+  overflow-wrap: anywhere;
 }
 
 .note_container .note_content-descriptor {
@@ -383,6 +384,12 @@ body {
   font-size: 1rem;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
+  padding: 1rem;
+}
+
+.note_container-edit .note_content-value:focus,
+.note_container-edit .note_content-value:active {
+  outline: 3px solid var(--secondary-text);
 }
 
 .note_container-edit .note_submit-or-cancel {
@@ -400,8 +407,9 @@ body {
   padding: 1rem 0.5rem;
   cursor: pointer;
   color: var(--primary-background);
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .note_container-edit .note_submit-edit-button {
@@ -413,8 +421,9 @@ body {
   padding: 1rem 0.5rem;
   cursor: pointer;
   color: var(--primary-background);
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .note_container-create .note_content {
@@ -435,6 +444,12 @@ body {
   font-size: 1rem;
   font-weight: 900;
   font-family: "Nunito", sans-serif;
+  padding: 1rem;
+}
+
+.note_container-create .note_content-value:focus,
+.note_container-create .note_content-value:active {
+  outline: 3px solid var(--secondary-text);
 }
 
 .note_container-create .note_submit-or-cancel {
@@ -452,8 +467,9 @@ body {
   padding: 1rem 0.5rem;
   cursor: pointer;
   color: var(--primary-background);
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .note_container-create .note_submit-create-button {
@@ -465,8 +481,9 @@ body {
   padding: 1rem 0.5rem;
   cursor: pointer;
   color: var(--primary-background);
-  font-weight: bold;
+  font-weight: 900;
   font-size: 1rem;
+  font-family: "Nunito", sans-serif;
 }
 
 .note_create-button{
@@ -509,6 +526,7 @@ body {
 }
 
 .note_edit-button-container{
+  z-index: 1;
   position: absolute;
   top: 0;
   right: 0;
@@ -652,6 +670,26 @@ body {
   margin: 5rem 2rem;
 }
 
+.jobapp_container-create {
+  position: relative;
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
+.jobapp_container-edit {
+  position: relative;
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+  padding: 1rem;
+  margin: 1rem;
+  font-weight: bold;
+}
+
 .jobapp_container {
   border: 1px solid var(--primary-text);
   border-radius: 5px;
@@ -765,6 +803,7 @@ body {
 }
 
 .jobapp_container .jobapp_see-details {
+  align-self: flex-start;
   border: 1px solid var(--secondary-text);
   border-radius: 5px;
   padding: 1rem;
@@ -787,6 +826,170 @@ body {
   color: var(--tertiary-text);
 }
 
+
+
+.jobapp_container-edit .jobapp_company{
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-edit .jobapp_company .jobapp_company-descriptor {
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.jobapp_container-edit .jobapp_company .jobapp_company-value {
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-edit .jobapp_company .jobapp_company-value:focus,
+.jobapp_container-edit .jobapp_company .jobapp_company-value:active {
+  outline: 3px solid var(--primary-text);
+}
+
+.jobapp_container-edit .jobapp_title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-edit .jobapp_title .jobapp_title-descriptor {
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.jobapp_container-edit .jobapp_title .jobapp_title-value {
+  border: 1px solid var(--secondary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-edit .jobapp_title .jobapp_title-value:focus,
+.jobapp_container-edit .jobapp_title .jobapp_title-value:active {
+  outline: 3px solid var(--secondary-text);
+}
+
+.jobapp_container-edit .jobapp_description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-edit .jobapp_description .jobapp_description-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-edit .jobapp_description .jobapp_description-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-edit .jobapp_companyUrl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-edit .jobapp_companyUrl .jobapp_companyUrl-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-edit .jobapp_companyUrl .jobapp_companyUrl-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-edit .jobapp_status {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-edit .jobapp_status .jobapp_status-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-edit .jobapp_status .jobapp_status-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+  background-color: white;
+}
+
+.jobapp_container-edit .jobapp_description .jobapp_description-value:focus,
+.jobapp_container-edit .jobapp_description .jobapp_description-value:active,
+.jobapp_container-edit .jobapp_companyUrl .jobapp_companyUrl-value:focus,
+.jobapp_container-edit .jobapp_companyUrl .jobapp_companyUrl-value:active,
+.jobapp_container-edit .jobapp_status .jobapp_status-value:focus,
+.jobapp_container-edit .jobapp_status .jobapp_status-value:active {
+  outline: 3px solid var(--tertiary-text);
+}
+
+.jobapp_container-edit .jobapp_submit-or-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jobapp_container-edit .jobapp_cancel-edit-button {
+  flex: 1;
+  margin: 0.5rem 0.5rem 0 0;
+  background-color: var(--tertiary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.jobapp_container-edit .jobapp_submit-edit-button {
+  flex: 1;
+  margin: 0.5rem 0 0 0.5rem;
+  background-color: var(--secondary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
 .jobapp_edit-error-message {
   color: red;
   text-align: center;
@@ -800,6 +1003,276 @@ body {
   text-align: center;
   font-family: 'Nunito', sans-serif;
   font-weight: 900;
+}
+
+
+.jobapp_edit-button-container{
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(-1rem, 1rem)
+}
+
+.jobapp_edit-button{
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--tertiary-text);
+  border: none;
+  background-color: rgba(0,0,0,0);
+  cursor: pointer;
+}
+
+.jobapp_edit-button svg{
+  width: 2rem;
+}
+
+.jobapp_edit-options-container {
+  flex-direction: column;
+  border: 1px solid var(--secondary-text);
+  border-radius: 5px;
+  background-color: var(--secondary-background);
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item span {
+  padding-left: 0.5rem;
+  flex: 1;
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item.close{
+  color: var(--tertiary-text);
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item.edit{
+  color: var(--primary-text);
+}
+
+.jobapp_edit-options-container .jobapp_edit-option-item.delete{
+  color: red;
+}
+
+
+.jobapp_create-button{
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1rem 2rem;
+  display: flex;
+  align-items: center;
+  font-family: 'Nunito', sans-serif;
+  color: var(--tertiary-text);
+  border-radius: 5px;
+  border: 1px solid var(--primary-text);
+  background-color: var(--secondary-background);
+  cursor: pointer;
+}
+
+.jobapp_create-button svg{
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.jobapp_create-button span{
+  font-weight: 900;
+  font-size: 1.2rem;
+  padding-left: 0.5rem;
+}
+
+.jobapp_container-create .jobapp_company {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-create .jobapp_company .jobapp_company-descriptor {
+  color: var(--primary-text);
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.jobapp_container-create .jobapp_company .jobapp_company-value {
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-create .jobapp_company .jobapp_company-value:focus,
+.jobapp_container-create .jobapp_company .jobapp_company-value:active {
+  outline: 3px solid var(--primary-text);
+}
+
+.jobapp_container-create .jobapp_title {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-create .jobapp_title .jobapp_title-descriptor {
+  color: var(--secondary-text);
+  font-size: 1.25rem;
+  font-weight: 900;
+}
+
+.jobapp_container-create .jobapp_title .jobapp_title-value {
+  border: 1px solid var(--secondary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-create .jobapp_title .jobapp_title-value:focus,
+.jobapp_container-create .jobapp_title .jobapp_title-value:active {
+  outline: 3px solid var(--secondary-text);
+}
+
+.jobapp_container-create .jobapp_description {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-create .jobapp_description .jobapp_description-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-create .jobapp_description .jobapp_description-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-create .jobapp_companyUrl {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-create .jobapp_companyUrl .jobapp_companyUrl-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-create .jobapp_companyUrl .jobapp_companyUrl-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.jobapp_container-create .jobapp_status {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.jobapp_container-create .jobapp_status .jobapp_status-descriptor {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.jobapp_container-create .jobapp_status .jobapp_status-value {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+  background-color: white;
+}
+
+.jobapp_container-create .jobapp_description .jobapp_description-value:focus,
+.jobapp_container-create .jobapp_description .jobapp_description-value:active,
+.jobapp_container-create .jobapp_companyUrl .jobapp_companyUrl-value:focus,
+.jobapp_container-create .jobapp_companyUrl .jobapp_companyUrl-value:active,
+.jobapp_container-create .jobapp_status .jobapp_status-value:focus,
+.jobapp_container-create .jobapp_status .jobapp_status-value:active {
+  outline: 3px solid var(--tertiary-text);
+}
+
+
+.jobapp_container-create .jobapp_submit-or-cancel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jobapp_container-create .jobapp_cancel-create-button {
+  flex: 1;
+  margin: 0.5rem 0.5rem 0 0;
+  background-color: var(--tertiary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: 900;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.jobapp_container-create .jobapp_submit-create-button {
+  flex: 1;
+  margin: 0.5rem 0 0 0.5rem;
+  background-color: var(--secondary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: 900;
+  font-size: 1rem;
+  font-family: 'Nunito', sans-serif;
+}
+
+.jobapp_create-error-message {
+  color: red;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+  margin: 1rem;
+}
+
+.jobapp_create-success-message {
+  color: var(--secondary-text);
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 900;
+}
+
+.jobapp_description-large {
+  display: none;
 }
 
 
@@ -850,13 +1323,113 @@ body {
     cursor: pointer;
   }
 
+  .dashboard_page {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .dashboard_page .dashboard_page-stats-container{
     display: flex;
     justify-content: space-evenly;
   }
 
+  .jobapp_page {
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
   .jobapp_container {
+
+  }
+
+  .jobapp_container > div {
     display: flex;
+  }
+
+  .jobapp_container > div > div {
+    flex: 1;
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+  }
+
+  .jobapp_container > div > div:first-of-type {
+    padding-left: 0;
+  }
+
+  .jobapp_container .jobapp_description {
+     display: none;
+  }
+
+  .jobapp_container .jobapp_description-large {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .jobapp_container .jobapp_description-large-descriptor {
+    padding: 0;
+    color: var(--tertiary-text);
+    font-size: 0.75rem;
+  }
+
+  .jobapp_container .jobapp_description-large-value {
+    padding: 0;
+    color: var(--tertiary-text);
+    font-size: 1rem;
+    font-weight: 900;
+  }
+
+  .jobapp_container .jobapp_edit-button-container {
+    padding: 0;
+  }
+
+  .jobapp_container-create {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .jobapp_container-edit {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+  }
+
+  .jobapp_edit-success-message {
+    position: absolute;
+    bottom: -3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--secondary-text);
+    text-align: center;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 900;
+  }
+
+  .note_container {
+    display: flex;
+  }
+
+  .note_container .note_createdAt {
+    padding-right: 0.5rem;
+    flex: 1;
+  }
+
+  .note_container .note_updatedAt {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    flex: 1;
+  }
+
+  .note_container .note_content {
+    padding-left: 0.5rem;
+    flex: 4
+  }
+
+  .note_container .note_content .note_content-value{
+    padding-top: 1rem;  
   }
 
   .signup_page .signup_page-container,
@@ -867,5 +1440,10 @@ body {
 }
 
 @media (min-width: 1200px){
-
+  .dashboard_page {
+    max-width: 1000px;
+  }
+  .jobapp_page {
+    max-width: 1000px;
+  }
 }

@@ -9,7 +9,7 @@ Date.prototype.toTemporalInstant = toTemporalInstant;
 
 const capitalizeAllWords = s => s.split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
 
-export const JobApp = ( {  company, companyUrl, description, createdAt, updatedAt, title, status, id, listMode, createMode, jobApps, setJobApps, setJobApp  }) => {
+export const JobApp = ( {  company, companyUrl, description, createdAt, updatedAt, notes, title, status, id, listMode, createMode, jobApps, setJobApps, setJobApp  }) => {
 
   const navigate = useNavigate();
 
@@ -126,7 +126,8 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         status: editState.status,
         createdAt: createdAt,
         updatedAt: nowInstant,
-        id: id
+        id: id,
+        notes
       });
       toggleIsEditing();
       setSuccessEditMessage('Job App edited successfully!');
@@ -157,12 +158,13 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
       <>
         {isCreating ? (
           <form
-            className="note_container-create"
+            className="jobapp_container-create"
             onSubmit={handleSubmitCreateJobApp}
           >
-            <div>
+            <div className='jobapp_company'>
               <label
                 htmlFor="company"
+                className='jobapp_company-descriptor'
               >
                 Company
               </label>
@@ -170,13 +172,15 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
                 type="text"
                 id="company"
                 name="company"
+                className='jobapp_company-value'
                 value={state.company}
                 onChange={updateState}
               />
             </div>
-            <div>
+            <div className='jobapp_title'>
               <label
                 htmlFor="title"
+                className='jobapp_title-descriptor'
               >
                 Title
               </label>
@@ -184,27 +188,32 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
                 type="text"
                 id="title"
                 name="title"
+                className='jobapp_title-value'
                 value={state.title}
                 onChange={updateState}
               />
             </div>
-            <div>
+            <div className='jobapp_description'>
               <label
                 htmlFor="description"
+                className='jobapp_description-descriptor'
               >
                 Description
               </label>
               <textarea
                 id="description"
                 name="description"
+                className='jobapp_description-value'
+                rows={5}
                 value={state.description}
                 onChange={updateState}
               >
               </textarea>
             </div>
-            <div>
+            <div className='jobapp_companyUrl'>
               <label
                 htmlFor="companyUrl"
+                className='jobapp_companyUrl-descriptor'
               >
                 Company URL
               </label>
@@ -212,19 +221,22 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
                 type="text"
                 id="companyUrl"
                 name="companyUrl"
+                className='jobapp_companyUrl-value'
                 value={state.companyUrl}
                 onChange={updateState}
               />
             </div>
-            <div>
+            <div className='jobapp_status'>
               <label
                 htmlFor="status"
+                className='jobapp_status-descriptor'
               >
                 Status
               </label>
               <select
                 name="status"
                 id="status"
+                className='jobapp_status-value'
                 value={state.status}
                 onChange={updateState}
               >
@@ -233,15 +245,15 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
                 ))}
               </select>
             </div>
-            <div className="note_submit-or-cancel">
+            <div className="jobapp_submit-or-cancel">
               <button
-                className="note_cancel-create-button"
+                className="jobapp_cancel-create-button"
                 onClick={handleCancelCreateJobApp}
               >
                 Cancel
               </button>
               <button
-                className="note_submit-create-button"
+                className="jobapp_submit-create-button"
                 type="submit"
               >
                 Create Job App
@@ -250,7 +262,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
             <div>
               {
                 errorMessage && (
-                  <p>
+                  <p className='jobapp_create-error-message'>
                     Error: {errorMessage}
                   </p>
                 )
@@ -261,7 +273,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         ) : (
           <>
             <button
-              className='note_create-button'
+              className='jobapp_create-button'
               onClick={toggleIsCreating}
             > 
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -275,7 +287,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
             <div>
               {
                 successMessage && (
-                  <p>
+                  <p className='jobapp_create-success-message'>
                     {successMessage}
                   </p>
                 )
@@ -293,12 +305,13 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
     return (
       <>
         <form
-          className="note_container-create"
+          className="jobapp_container-edit"
           onSubmit={handleSubmitEditJobApp}
         >
-          <div>
+          <div className='jobapp_company'>
             <label
               htmlFor="company"
+              className='jobapp_company-descriptor'
             >
               Company
             </label>
@@ -306,13 +319,15 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               type="text"
               id="company"
               name="company"
+              className='jobapp_company-value'
               value={editState.company}
               onChange={updateEditState}
             />
           </div>
-          <div>
+          <div className='jobapp_title'>
             <label
               htmlFor="title"
+              className='jobapp_title-descriptor'
             >
               Title
             </label>
@@ -320,27 +335,32 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               type="text"
               id="title"
               name="title"
+              className='jobapp_title-value'
               value={editState.title}
               onChange={updateEditState}
             />
           </div>
-          <div>
+          <div className='jobapp_description'>
             <label
               htmlFor="description"
+              className='jobapp_description-descriptor'
             >
               Description
             </label>
             <textarea
               id="description"
               name="description"
+              className='jobapp_description-value'
+              rows={5}
               value={editState.description}
               onChange={updateEditState}
             >
             </textarea>
           </div>
-          <div>
+          <div className='jobapp_companyUrl'>
             <label
               htmlFor="companyUrl"
+              className='jobapp_companyUrl-descriptor'
             >
               Company URL
             </label>
@@ -348,19 +368,22 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               type="text"
               id="companyUrl"
               name="companyUrl"
+              className='jobapp_companyUrl-value'
               value={editState.companyUrl}
               onChange={updateEditState}
             />
           </div>
-          <div>
+          <div className='jobapp_status'>
             <label
               htmlFor="status"
+              className='jobapp_status-descriptor'
             >
               Status
             </label>
             <select
               name="status"
               id="status"
+              className='jobapp_status-value'
               value={editState.status}
               onChange={updateEditState}
             >
@@ -369,16 +392,16 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               ))}
             </select>
           </div>
-          <div className="note_submit-or-cancel">
+          <div className="jobapp_submit-or-cancel">
             <button
-              className="note_cancel-create-button"
+              className="jobapp_cancel-edit-button"
               type="button"
               onClick={handleCancelEditJobApp}
             >
               Cancel
             </button>
             <button
-              className="note_submit-create-button"
+              className="jobapp_submit-edit-button"
               type="submit"
             >
               Save
@@ -398,6 +421,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
 
   return (
     <div className="jobapp_container">
+      <div>
       { !listMode && (
         <div className="jobapp_createdAt">
           <div className="jobapp_createdAt-descriptor">
@@ -481,9 +505,9 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
         </>
       )}
       { !listMode && (
-        <div className='note_edit-button-container'>
+        <div className='jobapp_edit-button-container'>
           <button
-            className='note_edit-button'
+            className='jobapp_edit-button'
             onClick={toggleShowEditDropdown}
             style={{ display: showEditDropdown ? 'none' : 'inline' }}
           >
@@ -492,11 +516,11 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
             </svg>
           </button>
           <div
-            className='note_edit-options-container'
+            className='jobapp_edit-options-container'
             style={{ display: showEditDropdown ? 'flex' : 'none' }}
           >
             <div
-              className='note_edit-option-item close'
+              className='jobapp_edit-option-item close'
               onClick={toggleShowEditDropdown}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
@@ -507,7 +531,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               </span>
             </div>
             <div
-              className='note_edit-option-item edit'
+              className='jobapp_edit-option-item edit'
               onClick={toggleIsEditing}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
@@ -519,7 +543,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
               </span>
             </div>
             <div
-              className='note_edit-option-item delete'
+              className='jobapp_edit-option-item delete'
               onClick={handleDeleteJobApp}
             >
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-5 h-5">
@@ -532,6 +556,21 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
           </div>
         </div>
       )}
+      </div>
+      <div className="jobapp_description-large">
+        <div className="jobapp_description-large-descriptor">
+          Description
+        </div>
+        { listMode ? (
+          <div className="jobapp_description-large-value">
+            {description.length > 128 ? description.slice(0,128) + '... (click to see more)' : description}
+          </div>
+        ) : (
+          <div className="jobapp_description-large-value">
+            {description}
+          </div>
+        )}
+      </div>
       {
         successEditMessage && (
           <p className='jobapp_edit-success-message'>

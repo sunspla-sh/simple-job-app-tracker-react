@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import { LoginForm } from 'react-auth';
 
-export const LoginPage = ({ signupPath, onSuccessNavigatePath }) => {
+export const LoginPage = ({ signupPath, requestPasswordResetPath, onSuccessNavigatePath }) => {
 
   return (
     <div
@@ -16,6 +16,16 @@ export const LoginPage = ({ signupPath, onSuccessNavigatePath }) => {
           Log In
         </h1>
         <LoginForm onSuccessNavigatePath={onSuccessNavigatePath} />
+        <div
+          className='login_page-request-password-reset-container'
+        >
+          <Link
+            to={requestPasswordResetPath}
+            className='login_page-request-password-reset-link'
+          >
+            Forgot your password?
+          </Link>
+        </div>
         <div
           className='login_page-signup-container'
         >

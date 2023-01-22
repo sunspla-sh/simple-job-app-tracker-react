@@ -18,6 +18,8 @@ ReactDOM.createRoot(document.getElementById('root')).render(
       signUpUrl: `${baseUrl}/auth/signup`,
       logInUrl: `${baseUrl}/auth/login`,
       verifyUrl: `${baseUrl}/auth/verify`,
+      requestPasswordResetUrl: `${baseUrl}/auth/request-password-reset`,
+      passwordResetUrl: `${baseUrl}/auth/password-reset`
     }}>
       <WSProvider config={{
         baseUrl

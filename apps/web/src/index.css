@@ -100,18 +100,29 @@ body {
 .login_page-title {
   text-align: center;
   color: var(--primary-text);
+  font-weight: 900;
 }
 
 .signup_page-login-container,
 .login_page-signup-container {
   text-align: center;
-  margin: 3rem 0 0 0;
+  margin: 1.5rem 0 3rem 0;
 }
 
 .signup_page-login-link,
 .login_page-signup-link {
   font-weight: bold;
   color: var(--primary-text)
+}
+
+.login_page-request-password-reset-container{
+  text-align: center;
+  margin: 1.5rem 0 0 0;
+}
+
+.login_page-request-password-reset-link {
+  font-weight: bold;
+  color: var(--tertiary-text)
 }
 
 .signup_form .signup_form-group,
@@ -156,8 +167,9 @@ body {
     margin-top: 2rem;
     cursor: pointer;
     color: var(--primary-background);
-    font-weight: bold;
+    font-weight: 900;
     font-size: 1rem;
+    font-family: "Nunito", sans-serif;
 }
 
 .signup_form .signup_form-group .signup_form-button:hover,

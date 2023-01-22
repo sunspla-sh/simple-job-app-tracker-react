@@ -245,7 +245,7 @@ export class AuthService {
         || !password
         || typeof password !== 'string'
       ){
-        return Promise.reject(new Error('user id, token, and password are required'));
+        return Promise.reject(new Error('password is required'));
       }
   
       //check if password long enough

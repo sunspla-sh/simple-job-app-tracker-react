@@ -9,6 +9,8 @@ import { FAQPage } from './pages/FAQPage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
 import { JobAppPage } from './pages/JobAppPage';
+import { RequestPasswordResetPage } from './pages/RequestPasswordResetPage';
+import { PasswordResetPage } from './pages/PasswordResetPage';
 
 function App() {
 
@@ -71,7 +73,23 @@ function App() {
             path='/login'
             element={
               <UnauthOnly>
-                <LoginPage signupPath={'/signup'} onSuccessNavigatePath={'/dashboard'}/>
+                <LoginPage signupPath={'/signup'} requestPasswordResetPath={'/request-password-reset'} onSuccessNavigatePath={'/dashboard'}/>
+              </UnauthOnly>
+            }
+          />
+          <Route
+            path='/request-password-reset'
+            element={
+              <UnauthOnly>
+                <RequestPasswordResetPage />
+              </UnauthOnly>
+            }
+          />
+          <Route
+            path='/password-reset'
+            element={
+              <UnauthOnly>
+                <PasswordResetPage loginPath={'/login'} />
               </UnauthOnly>
             }
           />

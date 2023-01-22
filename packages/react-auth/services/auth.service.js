@@ -1,10 +1,12 @@
 
 export class AuthService {
 
-  constructor({ signUpUrl, logInUrl, verifyUrl }){
+  constructor({ signUpUrl, logInUrl, verifyUrl, requestPasswordResetUrl, passwordResetUrl }){
     this.signUpUrl = signUpUrl;
     this.logInUrl = logInUrl;
     this.verifyUrl = verifyUrl;
+    this.requestPasswordResetUrl = requestPasswordResetUrl;
+    this.passwordResetUrl = passwordResetUrl;
   }
 
   async signUp({ email, password, firstName, lastName }){
@@ -87,6 +89,43 @@ export class AuthService {
     }
   }
 
+  async requestPasswordReset(email){
+    try{
+      const res = await fetch(this.requestPasswordResetUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ email })
+      });
+      const json = await res.json();
+      if(json.error){
+        throw new Error(json.error.message)
+      }
+      return json;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  async passwordReset({ userId, token, password }){
+    try{
+      const res = await fetch(this.passwordResetUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ userId, token, password })
+      });
+      const json = await res.json();
+      if(json.error){
+        throw new Error(json.error.message)
+      }
+      return json;
+    } catch (err) {
+      throw err;
+    }
+  }
+
 }
 
-// export { AuthService };

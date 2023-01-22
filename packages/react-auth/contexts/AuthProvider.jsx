@@ -6,12 +6,14 @@ import { AuthService } from '../services/auth.service';
 
 export const AuthProvider = ({ children, config }) => {
 
-  const { signUpUrl, logInUrl, verifyUrl } = config;
+  const { signUpUrl, logInUrl, verifyUrl, requestPasswordResetUrl, passwordResetUrl } = config;
 
   const authService = new AuthService({
     signUpUrl,
     logInUrl,
-    verifyUrl
+    verifyUrl,
+    requestPasswordResetUrl,
+    passwordResetUrl
   });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);

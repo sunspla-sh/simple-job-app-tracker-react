@@ -6,6 +6,7 @@ import { LoginPage } from './pages/LoginPage';
 import { UnauthOnly, AuthOnly } from 'react-auth';
 import { DashboardPage } from './pages/DashboardPage';
 import { FAQPage } from './pages/FAQPage';
+import { ProfilePage } from './pages/ProfilePage';
 import { AboutPage } from './pages/AboutPage';
 import { HomePage } from './pages/HomePage';
 import { JobAppPage } from './pages/JobAppPage';
@@ -57,7 +58,7 @@ function App() {
             path='/profile'
             element={
               <AuthOnly>
-                <h1>the profile page</h1>
+                <ProfilePage />
               </AuthOnly>
             }
           />

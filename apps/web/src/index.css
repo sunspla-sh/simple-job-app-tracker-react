@@ -185,6 +185,338 @@ body {
   text-align: center;
 }
 
+.request-password-reset_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.request-password-reset_page .request-password-reset_page-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.request-password-reset_title {
+  text-align: center;
+  color: var(--primary-text);
+  font-weight: 900;
+}
+
+.request-password-reset_note {
+  color: var(--tertiary-text);
+  font-weight: 900;
+}
+
+.request-password-reset_form .request-password-reset_form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-label {
+  color: var(--secondary-text);
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-input {
+  background-color: var(--secondary-background);
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-input:focus,
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-input:active {
+  outline: 3px solid var(--primary-text);
+}
+
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-button {
+    background-color: var(--primary-text);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.5rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    color: var(--primary-background);
+    font-weight: 900;
+    font-size: 1rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.request-password-reset_form .request-password-reset_form-group .request-password-reset_form-button:hover {
+  text-decoration: underline;
+  transform: translateY(1px)
+}
+
+.request-password-reset_form-error {
+  color: red;
+  font-weight: 900;
+  text-align: center;
+}
+
+.request-password-reset_form-success {
+  color: var(--secondary-text);
+  font-weight: 900;
+  text-align: center;
+}
+
+.password-reset_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.password-reset_page .password-reset_page-container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.password-reset_title {
+  text-align: center;
+  color: var(--primary-text);
+  font-weight: 900;
+}
+
+.password-reset_note {
+  color: var(--tertiary-text);
+  font-weight: 900;
+}
+
+/* start --------------------------------------------- */
+.password-reset_form .password-reset_form-group {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+
+.password-reset_form .password-reset_form-group .password-reset_form-label {
+  color: var(--secondary-text);
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+.password-reset_form .password-reset_form-group .password-reset_form-input {
+  background-color: var(--secondary-background);
+  border: 1px solid var(--primary-text);
+  border-radius: 5px;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: var(--primary-text);
+}
+
+.password-reset_form .password-reset_form-group .password-reset_form-input:focus,
+.password-reset_form .password-reset_form-group .password-reset_form-input:active {
+  outline: 3px solid var(--primary-text);
+}
+
+.password-reset_form .password-reset_form-group .password-reset_form-button {
+    background-color: var(--primary-text);
+    border: none;
+    border-radius: 5px;
+    padding: 1rem 0.5rem;
+    margin-top: 2rem;
+    cursor: pointer;
+    color: var(--primary-background);
+    font-weight: 900;
+    font-size: 1rem;
+    font-family: "Nunito", sans-serif;
+}
+
+.password-reset_form .password-reset_form-group .password-reset_form-button:hover {
+  text-decoration: underline;
+  transform: translateY(1px)
+}
+
+.password-reset_form-error {
+  color: red;
+  font-weight: 900;
+  text-align: center;
+}
+
+.password-reset_form-success {
+  color: var(--secondary-text);
+  font-weight: 900;
+  text-align: center;
+}
+
+.password-reset_form-success-button-container {
+  display: flex;
+  justify-content: center;
+}
+
+.password-reset_form-success-button-container .password-reset_form-navigate-button {
+  background-color: var(--primary-text);
+  border: none;
+  border-radius: 5px;
+  padding: 1rem 3rem;
+  margin-top: 2rem;
+  cursor: pointer;
+  color: var(--primary-background);
+  font-weight: 900;
+  font-size: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+
+.password-reset_form-success-button-container .password-reset_form-navigate-button:hover {
+  text-decoration: underline;
+  transform: translateY(1px)
+}
+
+/* end ----------------------------------------------*/
+
+.profile_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.profile_page .profile_page-container {
+  margin: 0 1rem 3rem 1rem;
+}
+
+.profile_page .profile_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.profile_page-container .profile_email {
+  margin-bottom: 1rem;
+}
+
+.profile_page-container .profile_email-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.profile_page-container .profile_email-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.profile_page-container .profile_firstName {
+  margin-bottom: 1rem;
+}
+
+.profile_page-container .profile_firstName-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.profile_page-container .profile_firstName-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.profile_page-container .profile_lastName {
+  margin-bottom: 1rem;
+}
+
+.profile_page-container .profile_lastName-descriptor {
+  color: var(--tertiary-text);
+  font-size: 0.75rem;
+}
+
+.profile_page-container .profile_lastName-value {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
+.profile_page-container .profile_note {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  margin-top: 3rem;
+}
+
+.home_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.home_page .home_page-container {
+  margin: 0 1rem 3rem 1rem;
+}
+
+.home_page .home_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.home_page-container .home_note {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.about_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about_page .about_page-container {
+  margin: 0 1rem 3rem 1rem;
+}
+
+.about_page .about_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.about_page-container .about_note {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.faq_page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.faq_page .faq_page-container {
+  margin: 0 1rem 3rem 1rem;
+}
+
+.faq_page .faq_page-title {
+  text-align: center;
+  font-weight: 900;
+  font-size: 2.5rem;
+  color: var(--primary-text)
+}
+
+.faq_page-container .faq_note {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  margin-top: 3rem;
+  text-align: center;
+}
+
 .dashboard_page {
 
 }
@@ -1446,6 +1778,14 @@ body {
 
   .signup_page .signup_page-container,
   .login_page .login_page-container {
+    width: 400px;
+  }
+
+  .request-password-reset_page .request-password-reset_page-container {
+    width: 400px;
+  }
+
+  .password-reset_page .password-reset_page-container {
     width: 400px;
   }
 

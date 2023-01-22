@@ -55,6 +55,12 @@
   [x] web - desktop navbar
   [x] web - max width signup/login
   [x] web - max width navbar and page content
+  [x] web - password reset page
+  [x] web - request password reset page
+  [x] web - profile page
+  [x] web - faq page
+  [x] web - about page
+  [x] web - home page
 [x] crx - set up memory router
 [x] crx - login page
 [x] crx - signup page
@@ -63,7 +69,10 @@
 [x] crx - jobapp page
 [] crx - protect routes
 [] crx - styling
-[] cron - for sending daily text/telegram/whatsapp/slack/discord/email message report
+  [] crx - login page
+  [] crx - signup page
+  [] crx - jobapp create page
+[] cron - for sending daily email message report
 [x] local scope for CSS?
 [x] custom rollup config for chrome-extension?
 [x] switch to react-router-dom outlets?

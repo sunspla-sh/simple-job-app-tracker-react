@@ -46,23 +46,37 @@ export const RequestPasswordResetPage = () => {
         >
           Request Password Reset
         </h1>
-        <p>
-          Enter your account email in the following form and we'll send you a link to reset your password if an account with that email exists
+        <p
+          className="request-password-reset_note"
+        >
+          Enter your account email in the following form and we'll send you a link to reset your password if an account with that email exists:
         </p>
         <form
           onSubmit={handleRequestPasswordReset}
+          className='request-password-reset_form'
         >
-          <div>
-            <label htmlFor="email">Email</label>
+          <div
+            className='request-password-reset_form-group'
+          >
+            <label
+              htmlFor="email"
+              className='request-password-reset_form-label'  
+            >
+              Email
+            </label>
             <input
               id="email"
               type="email"
+              className='request-password-reset_form-input'  
               value={email}
               onChange={updateEmail}
             />
           </div>
-          <div>
+          <div
+            className='request-password-reset_form-group'  
+          >
             <button
+              className='request-password-reset_form-button'  
               type='submit'
             >
               { isLoading ? 'Loading...' : 'Request Password Reset' }
@@ -70,10 +84,18 @@ export const RequestPasswordResetPage = () => {
           </div>
         </form>
         { errorMessage && (
-          <p>Error: {errorMessage}</p>
+          <p
+            className='request-password-reset_form-error'
+          >
+            Error: {errorMessage}
+          </p>
         )}
         { successMessage && (
-          <p>{successMessage}</p>
+          <p
+            className='request-password-reset_form-success'
+          >
+            {successMessage}
+          </p>
         )}
       </div>
     </div>

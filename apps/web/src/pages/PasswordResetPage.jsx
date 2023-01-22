@@ -52,26 +52,40 @@ export const PasswordResetPage = ({ loginPath }) => {
         </h1>
         { !successMessage && (
           <>
-            <p>
+            <p
+              className="password-reset_note"
+            >
               Enter your new password. Password must be at least 8 characters.
             </p>
             <form
               onSubmit={handlePasswordReset}
+              className='password-reset_form'
             >
-              <div>
-                <label htmlFor="password">New Password</label>
+              <div
+                className='password-reset_form-group'
+              >
+                <label
+                  htmlFor="password"
+                  className='password-reset_form-label'  
+                >
+                  New Password
+                </label>
                 <input
                   id="password"
                   type="password"
+                  className='password-reset_form-input'  
                   value={password}
                   onChange={updatePassword}
                 />
               </div>
-              <div>
+              <div
+                className='password-reset_form-group'  
+              >
                 <button
+                  className='password-reset_form-button'  
                   type='submit'
                 >
-                  { isLoading ? 'Loading...' : 'Update' }
+                  { isLoading ? 'Loading...' : 'Update Password' }
                 </button>
               </div>
             </form>  
@@ -79,17 +93,33 @@ export const PasswordResetPage = ({ loginPath }) => {
         )}
         { successMessage && (
           <>
-            <p>{successMessage}</p>
-            <Link
-              to={loginPath}
+            <p
+              className='password-reset_form-success'
             >
-              <button>Go to Login Page</button>
-            </Link>
+              {successMessage}
+            </p>
+            <div
+              className='password-reset_form-success-button-container'  
+            >
+              <Link
+                to={loginPath}
+              >
+                <button
+                  className='password-reset_form-navigate-button'  
+                >
+                  Go to Login Page
+                </button>
+              </Link>
+            </div>
           </>
         )}
         
         { errorMessage && (
-          <p>Error: {errorMessage}</p>
+          <p
+            className='password-reset_form-error'
+          >
+            Error: {errorMessage}
+          </p>
         )}
       </div>
     </div>

@@ -46,8 +46,9 @@
   [x] web - note delete
 [x] web - request password reset page
 [x] web - password reset pages
-#[] web - verification email on signup
 #[] web - profile editing
+#[] web - verification email on signup
+#[] web - verification email on updating profile email
 [x] web - styling
   [x] web - jobapp create styling
   [x] web - jobapp edit styling
@@ -65,14 +66,14 @@
 [x] crx - login page
 [x] crx - signup page
 [x] crx - jobapp form
-  [] crx - jobapp form local storage for form data
+  [x] crx - jobapp form local storage for form data
 [x] crx - jobapp page
-[] crx - protect routes
 [] crx - styling
-  [] crx - login page
-  [] crx - signup page
-  [] crx - jobapp create page
+  [x] crx - login page
+  [x] crx - signup page
+  [x] crx - jobapp create page
 [] cron - for sending daily email message report
+  [] cron - design email template
 [x] local scope for CSS?
 [x] custom rollup config for chrome-extension?
 [x] switch to react-router-dom outlets?

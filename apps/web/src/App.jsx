@@ -41,7 +41,7 @@ function App() {
           <Route
             path='/dashboard'
             element={
-              <AuthOnly>
+              <AuthOnly redirect={'/login'}>
                 <DashboardPage />
               </AuthOnly>
             }
@@ -49,7 +49,7 @@ function App() {
           <Route
             path='/jobapp/:jobAppId'
             element={
-              <AuthOnly>
+              <AuthOnly redirect={'/login'}>
                 <JobAppPage />
               </AuthOnly>
             }
@@ -57,7 +57,7 @@ function App() {
           <Route
             path='/profile'
             element={
-              <AuthOnly>
+              <AuthOnly redirect={'/login'}>
                 <ProfilePage />
               </AuthOnly>
             }
@@ -65,7 +65,7 @@ function App() {
           <Route
             path='/signup'
             element={
-              <UnauthOnly>
+              <UnauthOnly redirect={'/dashboard'}>
                 <SignupPage loginPath={'/login'} onSuccessNavigatePath={'/dashboard'}/>
               </UnauthOnly>
             }
@@ -73,7 +73,7 @@ function App() {
           <Route
             path='/login'
             element={
-              <UnauthOnly>
+              <UnauthOnly redirect={'/dashboard'}>
                 <LoginPage signupPath={'/signup'} requestPasswordResetPath={'/request-password-reset'} onSuccessNavigatePath={'/dashboard'}/>
               </UnauthOnly>
             }
@@ -81,7 +81,7 @@ function App() {
           <Route
             path='/request-password-reset'
             element={
-              <UnauthOnly>
+              <UnauthOnly redirect={'/dashboard'}>
                 <RequestPasswordResetPage />
               </UnauthOnly>
             }
@@ -89,7 +89,7 @@ function App() {
           <Route
             path='/password-reset'
             element={
-              <UnauthOnly>
+              <UnauthOnly redirect={'/dashboard'}>
                 <PasswordResetPage loginPath={'/login'} />
               </UnauthOnly>
             }

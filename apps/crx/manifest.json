@@ -4,5 +4,11 @@
   "version": "1.0.0",
   "action": {
     "default_popup": "index.html"
-  }
+  },
+  "web_accessible_resources": [
+    {
+      "resources": ["Nunito-VariableFont_wght.ttf", "Nunito-Italic-VariableFont_wght.ttf"],
+      "matches": ["<all_urls>"]
+    }
+  ]
 }

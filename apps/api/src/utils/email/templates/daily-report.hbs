@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+</head>
+<body>
+  <h1>
+    Daily Job App Report
+  </h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Last Name</th>
+        <th>First Name</th>
+        <th>Yesterday's Apps</th>
+        <th>Total Apps</th>
+        <th>Applied</th>
+        <th>Interviewing</th>
+        <th>No Offer</th>
+        <th>Offer Received</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each usersArray}}
+        <tr>
+          <td>{{this.lastName}}</td>
+          <td>{{this.firstName}}</td>
+          <td>{{this.stats.dailyCount}}</td>
+          <td>{{this.totalJobApps}}</td>
+          <td>{{this.stats.applied}}</td>
+          <td>{{this.stats.interviewing}}</td>
+          <td>{{this.stats.noOffer}}</td>
+          <td>{{this.stats.offerReceived}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</body>
+</html>

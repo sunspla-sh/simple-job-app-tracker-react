@@ -68,13 +68,16 @@
 [x] crx - jobapp form
   [x] crx - jobapp form local storage for form data
 [x] crx - jobapp page
-[] crx - styling
+[x] crx - styling
   [x] crx - login page
   [x] crx - signup page
   [x] crx - jobapp create page
-[] cron - for sending daily email message report
-  [] cron - design email template
+#[] crx - logout button
+[x] cron - for sending daily email message report
+  [x] cron - design email template
 [x] local scope for CSS?
 [x] custom rollup config for chrome-extension?
 [x] switch to react-router-dom outlets?
-[] fly.io deployment config
+[] fly.io - deployment config
+[] task - separate cron from server.js to report.task.js
+[] aws - email out of sandbox

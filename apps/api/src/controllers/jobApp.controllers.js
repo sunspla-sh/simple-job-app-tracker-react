@@ -132,6 +132,7 @@ export const deleteController = async (req, res, next) => {
   try {
     const deletedJobApp = await jobAppService.delete({ userId, jobAppId });
     res.status(200).json(deletedJobApp);
+    ws.to(userId).emit('jobapp:delete', jobAppId); //emit deleted job app id here using websockets
   } catch (err) {
     next(err);
   }

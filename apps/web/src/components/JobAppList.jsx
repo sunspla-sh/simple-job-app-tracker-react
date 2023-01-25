@@ -34,9 +34,14 @@ export const JobAppList = () => {
 
   useEffect(() => {
     if(socket){
-      const handleJobApps = createdJobApp => setJobApps([createdJobApp, ...jobApps]);
-      socket.on('jobapp:create', handleJobApps);
-      return () => socket.off('jobapp:create', handleJobApps);
+      const addJobApp = createdJobApp => setJobApps([createdJobApp, ...jobApps]);
+      const removeJobApp = deletedJobAppId => setJobApps(jobApps.filter(j => j.id !== deletedJobAppId));
+      socket.on('jobapp:create', addJobApp);
+      socket.on('jobapp:delete', removeJobApp);
+      return () => {
+        socket.off('jobapp:create', addJobApp);
+        socket.off('jobapp:delete', removeJobApp);
+      }
     }
   }, [socket, jobApps]);
 

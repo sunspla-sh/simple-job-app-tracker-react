@@ -29,12 +29,15 @@ export const JobAppDailyCount = () => {
 
   useEffect(() => {
     if(socket){
-      const handleDailyCount = () => setDailyCount(dailyCount + 1);
+      const incrementDailyCount = () => setDailyCount((oldCount) => oldCount + 1);
+      const decrementDailyCount = () => setDailyCount((oldCount) => oldCount - 1);
       const handleDailyCountReset = () => setDailyCount(0);
-      socket.on('jobapp:create', handleDailyCount);
+      socket.on('jobapp:create', incrementDailyCount);
+      socket.on('jobapp:delete', decrementDailyCount);
       socket.on('jobapp:daily-count-reset', handleDailyCountReset);
       return () => {
-        socket.off('jobapp:create', handleDailyCount);
+        socket.off('jobapp:create', incrementDailyCount);
+        socket.off('jobapp:delete', decrementDailyCount);
         socket.off('jobapp:daily-count-reset', handleDailyCountReset);
       };
     }

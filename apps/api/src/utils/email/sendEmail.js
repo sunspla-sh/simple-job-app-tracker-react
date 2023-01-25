@@ -24,6 +24,9 @@ export const sendEmail = async ({ emailTo, emailSubject, handlebarsVariables, ha
     const transporter = createTransport({
       host: EMAIL_HOST,
       port: EMAIL_PORT,
+      headers: {
+        'X-PM-Message-Stream': 'outbound' //message stream header for postmark
+      },
       auth: {
         user: EMAIL_USERNAME,
         pass: EMAIL_PASSWORD

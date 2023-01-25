@@ -1,3 +1,10 @@
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+
+const __dirname = path.dirname(__filename);
+
 import express from 'express';
 import morgan from 'morgan';
 import cors from 'cors';
@@ -21,6 +28,8 @@ app.use('/api/jobapp', isAuthenticated, jobAppRouter);
 
 import noteRouter from './routes/note.routes.js';
 app.use('/api/jobapp/:jobAppId/note', isAuthenticated, noteRouter);
+
+app.use(express.static(__dirname + '/public'));
 
 app.use((req, res, next) => {
   res.status(404).json({

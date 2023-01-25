@@ -9,7 +9,7 @@ import { AuthProvider } from 'react-auth';
 import { WSProvider } from 'react-ws';
 import { JobAppProvider } from 'react-jobapp';
 
-const baseUrl = 'http://localhost:3000'
+const baseUrl = import.meta.env.VITE_API_URL;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

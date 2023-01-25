@@ -10,7 +10,7 @@ import { WSProvider } from 'react-ws';
 import { JobAppProvider } from 'react-jobapp';
 import { NoteProvider } from 'react-note';
 
-const baseUrl = 'http://localhost:3000';
+const baseUrl = import.meta.env.VITE_API_URL;
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>

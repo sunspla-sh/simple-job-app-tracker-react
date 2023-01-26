@@ -14,6 +14,13 @@ export const FAQPage = () => {
         <p
           className="faq_note"
         >
+          {/* 
+            ycombinator
+            jobs.techstars.com/jobs
+            angellist
+            builtin
+            remoteok
+          */}
           FAQs are coming soon...
         </p>
       </div>

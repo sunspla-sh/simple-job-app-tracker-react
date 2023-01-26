@@ -46,9 +46,6 @@
   [x] web - note delete
 [x] web - request password reset page
 [x] web - password reset pages
-#[] web - profile editing
-#[] web - verification email on signup
-#[] web - verification email on updating profile email
 [x] web - styling
   [x] web - jobapp create styling
   [x] web - jobapp edit styling
@@ -72,12 +69,27 @@
   [x] crx - login page
   [x] crx - signup page
   [x] crx - jobapp create page
-#[] crx - logout button
 [x] cron - for sending daily email message report
   [x] cron - design email template
-[x] local scope for CSS?
-[x] custom rollup config for chrome-extension?
-[x] switch to react-router-dom outlets?
+[] docker - build process
+  [] docker - build web app
+    [] docker - move built web app to public folder of api app
+  [] docker - build crx app
+    [] docker - zip built crx app
+    [] docker - move - built crx app to public folder of api app
 [] fly.io - deployment config
-[] task - separate cron from server.js to report.task.js
-[] aws - email out of sandbox
+[] postmark - email out of sandbox
+
+#stretch goals
+#[] crx - logout button at top of screen
+#[] crx - name at top of screen
+#[] web - websocket emit for editing job app
+#[] web - websocket emit for editing note
+#[] web - websocket emit for creating note
+#[] web - websocket emit for deleting note
+#[] web - profile editing
+#[] web - verification email on signup
+#[] web - verification email on updating profile email
+#[] task - separate cron from server.js to report.task.js
+#[] switch to react-router-dom outlets?
+#[] local scope for css?

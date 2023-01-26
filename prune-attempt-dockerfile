@@ -1,0 +1,161 @@
+
+# ----- BUILDER-WEB -----
+# PRUNE SO THAT WE HAVE ONLY PACKAGES - ALLOWS DOCKER CACHING TO SKIP REINSTALL PACKAGES WHEN WE CHANGE JS/HTML/CSS etc.
+FROM node:19-alpine AS builder-web
+
+RUN apk add --no-cache libc6-compat
+
+RUN apk add bash
+
+RUN apk update
+
+#need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
+SHELL ["/bin/bash", "-c"]
+
+RUN wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+
+RUN SHELL=bash pnpm setup
+
+SHELL ["/bin/bash", "-c", "source /root/.bashrc"]
+
+#RUN source /root/.bashrc
+
+WORKDIR /app
+
+RUN pnpm add -g turbo
+
+COPY . .
+
+RUN turbo prune --scope=web --docker
+
+# ----- BUILDER-CRX -----
+FROM node:19-alpine AS builder-crx
+
+RUN apk add --no-cache libc6-compat
+
+RUN apk add bash
+
+RUN apk update
+
+#need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
+SHELL ["/bin/bash", "-c"]
+
+RUN wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+
+RUN SHELL=bash pnpm setup
+
+SHELL ["/bin/bash", "-c", "source /root/.bashrc"]
+
+#RUN source /root/.bashrc
+
+WORKDIR /app
+
+RUN pnpm add -g turbo
+
+COPY . .
+
+RUN turbo prune --scope=crx --docker
+
+# ----- BUILDER-API -----
+FROM node:19-alpine AS builder-api
+
+RUN apk add --no-cache libc6-compat
+
+RUN apk add bash
+
+RUN apk update
+
+#need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
+SHELL ["/bin/bash", "-c"]
+
+RUN wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+
+RUN SHELL=bash pnpm setup
+
+SHELL ["/bin/bash", "-c", "source /root/.bashrc"]
+
+#RUN source /root/.bashrc
+
+WORKDIR /app
+
+RUN pnpm add -g turbo
+
+COPY . .
+
+RUN turbo prune --scope=api --docker
+
+
+# ----- INSTALLER -----
+# INSTALL PACKAGES - THEY CHANGE LESS OFTEN SO DOCKER CACHING WILL BE ABLE TO ACCELERATE THIS STEP FREQUENTLY
+FROM node:19-alpine AS installer
+
+RUN apk add --no-cache libc6-compat
+
+RUN apk add bash
+
+RUN apk update
+
+#need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
+SHELL ["/bin/bash", "-c"]
+
+RUN wget -qO /bin/pnpm "https://github.com/pnpm/pnpm/releases/latest/download/pnpm-linuxstatic-x64" && chmod +x /bin/pnpm
+
+RUN SHELL=bash pnpm setup
+
+SHELL ["/bin/bash", "-c", "source /root/.bashrc"]
+
+#RUN source /root/.bashrc
+
+WORKDIR /app
+
+COPY --from=builder-web /app/out/json .
+
+COPY --from=builder-crx /app/out/json .
+
+COPY --from=builder-api /app/out/json .
+
+#Need original pnpm-lock.yaml here - not pruned versions
+COPY --from=builder-web /app/pnpm-lock.yaml .
+
+RUN pnpm install
+
+COPY --from=builder-web /app/out/full .
+
+COPY --from=builder-crx /app/out/full .
+
+COPY --from=builder-api /app/out/full .
+
+COPY turbo.json turbo.json
+
+RUN pnpm run build
+
+#need prisma generate in here somewhere
+
+#need move built web app into api public folder
+
+#need to zip crx app here
+
+#need move built crx app into api public folder here
+
+
+# ----- RUNNER -----
+FROM node:19-alpine AS runner
+
+WORKDIR /app
+
+RUN addgroup --system --gid 1001 nodejs
+
+RUN adduser --system --uid 1001 appuser
+
+USER appuser
+
+COPY --from=installer --chown=appuser:nodejs /app .
+
+CMD [ "npm", "run", "start" ]
+
+
+
+
+
+
+

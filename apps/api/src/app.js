@@ -29,7 +29,8 @@ app.use('/api/jobapp', isAuthenticated, jobAppRouter);
 import noteRouter from './routes/note.routes.js';
 app.use('/api/jobapp/:jobAppId/note', isAuthenticated, noteRouter);
 
-app.use(express.static(__dirname + '/public'));
+console.log('public path', path.join(__dirname,'public'))
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.use((req, res, next) => {
   res.status(404).json({

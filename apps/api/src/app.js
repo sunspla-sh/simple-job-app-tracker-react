@@ -16,7 +16,7 @@ const app = express();
 app.use(morgan('dev'));
 
 app.use((req, res, next) => {
-  if(process.env.NODE_ENV === "production" && req.hostname !== process.env.FRONTEND_URL){
+  if(process.env.NODE_ENV === "production" && req.hostname !== process.env.FRONTEND_URL_WITHOUT_PROTOCOL){
     res.redirect(process.env.FRONTEND_URL);
   }
   next()

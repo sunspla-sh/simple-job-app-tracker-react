@@ -72,13 +72,16 @@
 [x] cron - for sending daily email message report
   [x] cron - design email template
 [] docker - build process
-  [] docker - build web app
-    [] docker - move built web app to public folder of api app
-  [] docker - build crx app
-    [] docker - zip built crx app
-    [] docker - move - built crx app to public folder of api app
-[] fly.io - deployment config
+  [x] docker - build web app
+    [x] docker - move built web app to public folder of api app
+  [x] docker - build crx app
+    [x] docker - zip built crx app
+    [x] docker - move - built crx app to public folder of api app
+[x] fly.io - deployment config
+  [x] fly.io - make sure build process for crx and web app uses fly domain
+  [] fly.io - docker volumn for sqlite database persistence
 [] postmark - email out of sandbox
+[] loom - tutorial explaining web app and chrome extension usage
 
 #stretch goals
 #[] crx - logout button at top of screen

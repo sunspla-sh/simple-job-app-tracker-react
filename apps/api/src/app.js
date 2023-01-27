@@ -15,6 +15,13 @@ const app = express();
 
 app.use(morgan('dev'));
 
+app.use((req, res, next) => {
+  if(process.env.NODE_ENV === "production" && req.hostname !== process.env.FRONTEND_URL){
+    res.redirect(process.env.FRONTEND_URL);
+  }
+  next()
+})
+
 app.use(cors());
 
 app.use(express.json());

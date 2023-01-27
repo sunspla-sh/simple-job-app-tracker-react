@@ -7,7 +7,8 @@ processes = []
 
 [env]
   API_PORT = "8080"
-  FRONTEND_URL = "https://jobapptrack.fly.dev"
+  FRONTEND_URL = "https://jobapptrack.com"
+  NODE_ENV = "production"
 
 [experimental]
   auto_rollback = true

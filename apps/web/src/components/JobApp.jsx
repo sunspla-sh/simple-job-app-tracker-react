@@ -34,7 +34,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
     title: title,
     description: description,
     companyUrl: companyUrl,
-    status: STATUS_ENUM[0]
+    status: status
   });
 
   const [errorMessage, setErrorMessage] = useState('');
@@ -115,7 +115,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
       title: title,
       description: description,
       companyUrl: companyUrl,
-      status: STATUS_ENUM[0]
+      status: status
     });
   }
 

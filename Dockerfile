@@ -24,7 +24,7 @@ COPY . .
 RUN pnpm install
 
 #set env variables for vite so that web and crx apps are built correctly for production deployment
-ENV VITE_API_URL="https://jobapptrack.fly.dev"
+ENV VITE_API_URL="https://jobapptrack.com"
 
 #set env variables for prisma so that prisma generate runs correctly
 ENV DATABASE_URL="file:./prod.db"

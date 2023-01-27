@@ -80,10 +80,16 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
     e.preventDefault();
     try {
       const createdJobApp = await jobAppService.postJobApp(state);
-      setJobApps([
-        createdJobApp,
-        ...jobApps
-      ]);
+      /**
+       * we dont need to set jobapp here anymore because now
+       * a websocket event is emitted when jobapp gets created
+       * and jobapplist is listening for it and correctly updates
+       * our jobapps after receiving it
+       */
+      // setJobApps([
+      //   createdJobApp,
+      //   ...jobApps
+      // ]);
       setState({
         company: '',
         title: '',

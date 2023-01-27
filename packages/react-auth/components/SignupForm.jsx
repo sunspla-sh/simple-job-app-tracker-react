@@ -20,7 +20,6 @@ export const SignupForm = ({ onSuccessNavigatePath }) => {
 
       const { email, password, firstName, lastName } = state;
       const authToken = await authService.signUp({ email, password, firstName, lastName });
-      console.log(authToken);
       authService.storeAuthToken(authToken);
       await verifyUser();
       navigate(onSuccessNavigatePath);

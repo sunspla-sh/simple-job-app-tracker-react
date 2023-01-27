@@ -7,7 +7,7 @@ import { sendEmail } from './utils/email/sendEmail.js';
 
 import { createServer as createHttpServer } from 'http';
 
-import cron from 'node-cron';
+import croner from 'croner';
 
 import { prisma } from './db.js';
 
@@ -25,8 +25,10 @@ const server = createHttpServer(app);
 //attach ws to http server
 ws.attach(server);
 
-//attach task that reports user jobs at midnight and emits a jobapp:daily-count-reset event
-const task = cron.schedule('0 0 0 * * *', async () => {
+//create cron that reports user jobs at midnight and emits a jobapp:daily-count-reset event
+croner('0 0 0 * * *', {
+  timezone: 'America/New_York'
+}, async () => {
 // const task = cron.schedule('*/10 * * * * *', async () => {
   ws.emit('jobapp:daily-count-reset', 0);
 
@@ -73,37 +75,39 @@ const task = cron.schedule('0 0 0 * * *', async () => {
     console.log(err);
   }
   
-}, {
-  scheduled: false,
-  timezone: 'America/New_York'
 });
 
 server.listen(API_PORT, () => {
   console.log(`running on port ${API_PORT}`)
-  task.start()
 });
 
-process.on('SIGTERM', () => {
-  console.log('shutting down...');
-  //closes websocket connections and also closes http server
-  ws.close(async () => {
-    console.log('server closed');
-    task.stop()
-    console.log('daily task stopped')
-    await prisma.$disconnect();
-    console.log('prisma disconnected')
-  });
-})
+// process.on('SIGINT', async () => {
+//   console.log('shutting down...');
+//   task.stop()
+//   console.log('daily task stopped')
+//   //closes websocket connections and also closes http server
+//   ws.close(() => console.log('server closed'));
+//   await prisma.$disconnect();
+//   console.log('prisma disconnected')
+// })
 
-//nodemon sends this when shutting down
-process.on('SIGUSR2', () => {
-  console.log('shutting down...');
-  //closes websocket connections and also closes http server
-  ws.close(async () => {
-    console.log('server closed');
-    task.stop();
-    console.log('daily task stopped')
-    await prisma.$disconnect();
-    console.log('prisma disconnected')
-  });
-})
+// process.on('SIGTERM', async () => {
+//   console.log('shutting down...');
+//   task.stop()
+//   console.log('daily task stopped')
+//   //closes websocket connections and also closes http server
+//   ws.close(() => console.log('server closed'));
+//   await prisma.$disconnect();
+//   console.log('prisma disconnected')
+// })
+
+// //nodemon sends this when shutting down
+// process.on('SIGUSR2', async () => {
+//   console.log('shutting down...');
+//   task.stop()
+//   console.log('daily task stopped')
+//   //closes websocket connections and also closes http server
+//   ws.close(() => console.log('server closed'));
+//   await prisma.$disconnect();
+//   console.log('prisma disconnected')
+// })

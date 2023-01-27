@@ -16,6 +16,24 @@ export const HomePage = () => {
         >
           Setup instructions are coming soon...
         </p>
+        <p
+          className="home_note"
+          style={{
+            maxWidth: "300px",
+            marginLeft: "auto",
+            marginRight: "auto"
+          }}
+        >
+          <a
+            target="_blank"
+            href="/jobapptrack-chrome-extension.zip"
+            style={{
+              color: "var(--secondary-text)"
+            }}
+          >
+            For now, you can download the jobapptrack chrome extension by clicking here.
+          </a>
+        </p>
       </div>
       
     </div>

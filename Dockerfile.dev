@@ -31,10 +31,12 @@ ENV DATABASE_URL="file:./dev.db"
 RUN pnpm run build
 
 # generate prisma client from schema
-RUN pnpm dlx prisma generate --schema=./apps/api/prisma/schema.prisma
+#RUN pnpm dlx prisma generate --schema=./apps/api/prisma/schema.prisma
+RUN pushd apps/api && pnpm dlx prisma generate && popd
 
 # push initial schema to database
-RUN pnpm dlx prisma db push --schema=./apps/api/prisma/schema.prisma
+#RUN pnpm dlx prisma migrate dev --schema=./apps/api/prisma/schema.prisma
+RUN pushd apps/api && pnpm dlx prisma migrate dev && popd
 
 #need move built web app into api public folder
 RUN mv ./apps/web/dist/* ./apps/api/src/public

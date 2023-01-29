@@ -27,15 +27,17 @@ RUN pnpm install
 ENV VITE_API_URL="https://jobapptrack.com"
 
 #set env variables for prisma so that prisma generate runs correctly
-ENV DATABASE_URL="file:./prod.db"
+ENV DATABASE_URL="file:/data/jobapptrack_prod.db"
 
 RUN pnpm run build
 
 # generate prisma client from schema
-RUN pnpm dlx prisma generate --schema=./apps/api/prisma/schema.prisma
+#RUN pnpm dlx prisma generate --schema=./apps/api/prisma/schema.prisma
+RUN pushd apps/api && pnpm dlx prisma generate && popd
 
 # push initial schema to database
-RUN pnpm dlx prisma db push --schema=./apps/api/prisma/schema.prisma
+#RUN pnpm dlx prisma migrate deploy --schema=./apps/api/prisma/schema.prisma
+#RUN pushd apps/api && pnpm dlx prisma migrate deploy && popd
 
 #need move built web app into api public folder
 RUN mv ./apps/web/dist/* ./apps/api/src/public
@@ -49,4 +51,6 @@ RUN pushd apps/crx && zip -r jobapptrack-chrome-extension.zip jobapptrack-chrome
 #need move built crx app into api public folder here
 RUN mv ./apps/crx/jobapptrack-chrome-extension.zip ./apps/api/src/public
 
-CMD [ "node", "./apps/api/src/server.js" ]
+RUN chmod +x ./prod_startup.sh
+
+CMD [ "/bin/bash", "-c", "./prod_startup.sh" ]

@@ -4,7 +4,7 @@ import bcryptjs from 'bcryptjs';
 const userData = [
   {
     email: 'test@bob.com',
-    password: bcryptjs.hashSync('p4ssw0rd'),
+    password: bcryptjs.hashSync('asdfasdf'),
     firstName: 'bob',
     lastName: 'smith',
     jobApps: {

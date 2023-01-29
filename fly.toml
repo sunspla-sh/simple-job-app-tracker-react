@@ -11,6 +11,10 @@ processes = []
   FRONTEND_URL_WITHOUT_PROTOCOL = "jobapptrack.com"
   NODE_ENV = "production"
 
+[mounts]
+  source = "jobapptrack_data"
+  destination = "/data"
+
 [experimental]
   auto_rollback = true
 

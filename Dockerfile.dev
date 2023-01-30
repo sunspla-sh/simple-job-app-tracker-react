@@ -2,11 +2,11 @@ FROM node:19-alpine
 
 RUN apk add --no-cache libc6-compat
 
-RUN apk add bash
+RUN apk add --no-cache bash
 
-RUN apk add zip
+RUN apk add --no-cache zip
 
-RUN apk update
+RUN apk add --no-cache sqlite
 
 #need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
 SHELL ["/bin/bash", "-c"]

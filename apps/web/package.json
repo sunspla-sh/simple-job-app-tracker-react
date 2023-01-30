@@ -10,15 +10,16 @@
   },
   "dependencies": {
     "@js-temporal/polyfill": "^0.4.2",
+    "@loomhq/loom-embed": "^1.5.0",
+    "api": "workspace:*",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-auth": "workspace:*",
-    "react-ws": "workspace:*",
+    "react-dom": "^18.2.0",
     "react-jobapp": "workspace:*",
     "react-note": "workspace:*",
-    "react-ui": "workspace:*",
-    "api": "workspace:*",
     "react-router-dom": "^6.4.1",
+    "react-ui": "workspace:*",
+    "react-ws": "workspace:*",
     "socket.io-client": "^4.5.4"
   },
   "devDependencies": {

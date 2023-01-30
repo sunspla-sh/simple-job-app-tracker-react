@@ -75,6 +75,7 @@ importers:
   apps/web:
     specifiers:
       '@js-temporal/polyfill': ^0.4.2
+      '@loomhq/loom-embed': ^1.5.0
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
       '@vitejs/plugin-react': ^2.1.0
@@ -91,6 +92,7 @@ importers:
       vite: ^3.1.0
     dependencies:
       '@js-temporal/polyfill': 0.4.2
+      '@loomhq/loom-embed': 1.5.0
       api: link:../api
       react: 18.2.0
       react-auth: link:../../packages/react-auth
@@ -513,6 +515,10 @@ packages:
     dependencies:
       jsbi: 4.3.0
       tslib: 2.4.0
+    dev: false
+
+  /@loomhq/loom-embed/1.5.0:
+    resolution: {integrity: sha512-1Rilv+Ta39Rk2mEb8wzfLSpPhl6ax7kfLNnfYTAGK4mCJIxwQ1o/BY46QRbIpQT/SdfsFCvvNWa57hlEEaduGA==}
     dev: false
 
   /@nodelib/fs.scandir/2.1.5:

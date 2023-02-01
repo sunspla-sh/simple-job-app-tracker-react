@@ -108,7 +108,7 @@ export class JobAppService {
      *  character limits
      *  ---
      *  title - 128
-     *  description - 1024
+     *  description - 3072
      *  company - 128
      *  companyUrl - 256
      * 
@@ -131,8 +131,8 @@ export class JobAppService {
       return Promise.reject(new Error('title character count limit is 128'));
     }
 
-    if(description.length > 1024){
-      return Promise.reject(new Error('description character count limit is 1024'));
+    if(description.length > 3072){
+      return Promise.reject(new Error('description character count limit is 3072'));
     }
 
     if(company.length > 128){
@@ -176,7 +176,7 @@ export class JobAppService {
      *  character limits
      *  ---
      *  title - 128
-     *  description - 1024
+     *  description - 3072
      *  company - 128
      *  companyUrl - 256
      * 
@@ -199,8 +199,8 @@ export class JobAppService {
       return Promise.reject(new Error('title character count limit is 128'));
     }
 
-    if(description.length > 1024){
-      return Promise.reject(new Error('description character count limit is 1024'));
+    if(description.length > 3072){
+      return Promise.reject(new Error('description character count limit is 3072'));
     }
 
     if(company.length > 128){

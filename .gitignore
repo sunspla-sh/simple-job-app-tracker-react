@@ -31,3 +31,4 @@ build
 dev.db
 generated
 out
+*.xcf

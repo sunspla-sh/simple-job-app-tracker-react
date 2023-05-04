@@ -71,7 +71,7 @@
   [x] crx - jobapp create page
 [x] cron - for sending daily email message report
   [x] cron - design email template
-[] docker - build process
+[x] docker - build process
   [x] docker - build web app
     [x] docker - move built web app to public folder of api app
   [x] docker - build crx app
@@ -80,8 +80,8 @@
 [x] fly.io - deployment config
   [x] fly.io - make sure build process for crx and web app uses fly domain
   [] fly.io - docker volumn for sqlite database persistence
-[] postmark - email out of sandbox
-[] loom - tutorial explaining web app and chrome extension usage
+[x] postmark - email out of sandbox
+[x] loom - tutorial explaining web app and chrome extension usage
 
 #stretch goals
 #[] crx - logout button at top of screen

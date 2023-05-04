@@ -478,7 +478,7 @@ export const JobApp = ( {  company, companyUrl, description, createdAt, updatedA
           </div>
         ) : (
           <div className="jobapp_companyUrl-value">
-            <a href={`https://${companyUrl}`} target="_blank">
+            <a href={companyUrl} target="_blank">
               {companyUrl}
             </a>
           </div>

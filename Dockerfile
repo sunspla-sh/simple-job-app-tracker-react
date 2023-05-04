@@ -11,17 +11,19 @@ RUN apk add --no-cache sqlite
 #need to set bash as default shell because pnpm setup command is expecting bash, zsh, or fish
 SHELL ["/bin/bash", "-c"]
 
-RUN npm install --global pnpm \
+#need pnpm version 7 because version 8 breaks things due to a new pnpm lockfile syntax
+#eventually we will need to update all lockfiles and pnpm versions but this fix works for now
+RUN npm install --global pnpm@7.32.2 \
     && SHELL=bash pnpm setup \
     && source /root/.bashrc
-
-#RUN source /root/.bashrc
 
 WORKDIR /app
 
 COPY . .
 
-RUN pnpm install
+#need to opt out of the new lockfile config and syntax or things break
+#eventually we will need to update all lockfiles and pnpm versions but this fix works for now
+RUN pnpm install --config.use-lock-file-v6=false
 
 #set env variables for vite so that web and crx apps are built correctly for production deployment
 ENV VITE_API_URL="https://jobapptrack.com"

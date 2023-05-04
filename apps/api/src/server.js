@@ -56,7 +56,7 @@ croner('0 0 0 * * *', {
           acc.applied = acc.applied + ((cur.status === STATUS_ENUM[0]) ? 1 : 0);
           acc.interviewing = acc.interviewing + ((cur.status === STATUS_ENUM[1]) ? 1 : 0);
           acc.noOffer = acc.noOffer + ((cur.status === STATUS_ENUM[2]) ? 1 : 0);
-          acc.offerReceived = acc.offerReceived + ((cur.status === STATUS_ENUM[2]) ? 1 : 0);
+          acc.offerReceived = acc.offerReceived + ((cur.status === STATUS_ENUM[3]) ? 1 : 0);
           return acc;
         }, { dailyCount: 0, applied: 0, interviewing: 0, noOffer: 0, offerReceived: 0 })
       }

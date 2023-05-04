@@ -20,4 +20,4 @@ the authentication code to be written once and then shared between both the chro
 
 Technologies used for this project include the following:
 
-![List of technologies](tech.png "JobAppTrack.com Logo")
+![List of technologies](tech.png "List of technologies")

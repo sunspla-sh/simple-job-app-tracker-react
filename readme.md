@@ -11,7 +11,7 @@ Users can create account an account, create and track individual job application
 reset their password with email and a secure token, and use a chrome extension to add new job applications from different tabs so that they aren't required
 to always have the web application open in a different window.
 
-The code itself is organized as a monorepo with three different apps and various reusable packages.
+The code itself is organized as a monorepo using pnpm workspaces with three different apps and various reusable packages.
 
 The three apps are the API, the web app, and the chrome extension.
 

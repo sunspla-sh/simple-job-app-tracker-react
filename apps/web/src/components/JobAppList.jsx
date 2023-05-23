@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { WSContext } from 'react-ws';
 import { JobApp } from '../components/JobApp';
 import { LoadingHeart } from 'react-ui';
+import { JobAppFilter } from './JobAppFilter';
 
 export const JobAppList = () => {
 
@@ -14,8 +15,6 @@ export const JobAppList = () => {
   const [jobApps, setJobApps] = useState([]);
 
   const [filteredJobApps, setFilteredJobApps] = useState([]);
-
-  const [searchString, setSearchString] = useState('');
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -50,15 +49,6 @@ export const JobAppList = () => {
     }
   }, [socket, jobApps]);
 
-  useEffect(() => {
-    const search = searchString.toLowerCase();
-    
-    console.log(jobApps)
-    const filtered = jobApps.filter(jobApp => jobApp.company.toLowerCase().includes(search));
-    setFilteredJobApps(filtered);  
-
-  }, [searchString, jobApps])
-
   return (
     <div className='jobapp_list'>
       <div className='jobapp_list-title-container'>
@@ -79,17 +69,7 @@ export const JobAppList = () => {
           )
         }
         {!!jobApps.length && !isLoading && !errorMessage && (
-          <div className='jobapp_list-filter-container'>
-            <input
-              className='jobapp_list-filter-input'
-              value={searchString}
-              placeholder='Filter by Company Name'
-              onChange={e => setSearchString(e.target.value)}
-            />
-            <p className='jobapp_list-filter-info'>
-              Showing {filteredJobApps.length} out of {jobApps.length} job apps
-            </p>
-          </div>
+          <JobAppFilter filteredJobApps={filteredJobApps} setFilteredJobApps={setFilteredJobApps} jobApps={jobApps} />
         )}
         {filteredJobApps.map(jobApp => (
           <Link to={`/jobapp/${jobApp.id}`} key={jobApp.id} style={{ textDecoration: 'none' }}>

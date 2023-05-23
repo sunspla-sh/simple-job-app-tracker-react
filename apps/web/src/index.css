@@ -1020,6 +1020,35 @@ body {
   text-align: center;
 }
 
+.jobapp_list-filter-container{
+  text-align: center;
+  margin: 2rem 0;
+}
+
+.jobapp_list-filter-container .jobapp_list-filter-input {
+  border: 1px solid var(--tertiary-text);
+  border-radius: 5px;
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+  padding: 1rem;
+  font-family: "Nunito", sans-serif;
+}
+.jobapp_list-filter-container .jobapp_list-filter-input:focus,
+.jobapp_list-filter-container .jobapp_list-filter-input:active {
+  outline: 3px solid var(--tertiary-text);
+}
+
+.jobapp_list-filter-container .jobapp_list-filter-input::placeholder {
+  color: var(--tertiary-text);
+}
+
+.jobapp_list-filter-container .jobapp_list-filter-info {
+  color: var(--tertiary-text);
+  font-size: 1rem;
+  font-weight: 900;
+}
+
 .jobapp_list-loading {
   display: flex;
   flex-direction: column;

@@ -13,6 +13,10 @@ export const JobAppList = () => {
 
   const [jobApps, setJobApps] = useState([]);
 
+  const [filteredJobApps, setFilteredJobApps] = useState([]);
+
+  const [searchString, setSearchString] = useState('');
+
   const [isLoading, setIsLoading] = useState(true);
 
   const [errorMessage, setErrorMessage] = useState(null);
@@ -23,6 +27,7 @@ export const JobAppList = () => {
       try{
         const jobAppsArray = await jobAppService.getJobApps();
         setJobApps(jobAppsArray);
+        setFilteredJobApps(jobAppsArray);
       } catch (err) {
         console.log('error fetching jobapps: ', err)
         setErrorMessage(err.message);
@@ -45,11 +50,21 @@ export const JobAppList = () => {
     }
   }, [socket, jobApps]);
 
+  useEffect(() => {
+    const search = searchString.toLowerCase();
+    
+    console.log(jobApps)
+    const filtered = jobApps.filter(jobApp => jobApp.company.toLowerCase().includes(search));
+    setFilteredJobApps(filtered);  
+
+  }, [searchString, jobApps])
+
   return (
     <div className='jobapp_list'>
       <div className='jobapp_list-title-container'>
         <h2 className='jobapp_list-title'>Job Apps</h2>
       </div>
+      
       <div>
         {
           isLoading && (
@@ -60,10 +75,23 @@ export const JobAppList = () => {
         }
         {
           !isLoading && !errorMessage && (
-            <JobApp listMode={true} createMode={true} jobApps={jobApps} setJobApps={setJobApps} />
+            <JobApp listMode={true} createMode={true} />
           )
         }
-        {jobApps.map(jobApp => (
+        {!!jobApps.length && !isLoading && !errorMessage && (
+          <div className='jobapp_list-filter-container'>
+            <input
+              className='jobapp_list-filter-input'
+              value={searchString}
+              placeholder='Filter by Company Name'
+              onChange={e => setSearchString(e.target.value)}
+            />
+            <p className='jobapp_list-filter-info'>
+              Showing {filteredJobApps.length} out of {jobApps.length} job apps
+            </p>
+          </div>
+        )}
+        {filteredJobApps.map(jobApp => (
           <Link to={`/jobapp/${jobApp.id}`} key={jobApp.id} style={{ textDecoration: 'none' }}>
             <JobApp {...jobApp} listMode={true} />
           </Link>

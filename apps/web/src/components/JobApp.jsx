@@ -9,7 +9,7 @@ Date.prototype.toTemporalInstant = toTemporalInstant;
 
 const capitalizeAllWords = s => s.trim().split(' ').map(word => word[0].toUpperCase() + word.substring(1)).join(' ');
 
-export const JobApp = ( {  company, companyUrl, description, createdAt, updatedAt, notes, title, status, id, listMode, createMode, jobApps, setJobApps, setJobApp  }) => {
+export const JobApp = ( {  company, companyUrl, description, createdAt, updatedAt, notes, title, status, id, listMode, createMode, setJobApp  }) => {
 
   const navigate = useNavigate();
 

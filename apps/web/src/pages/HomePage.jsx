@@ -31,7 +31,7 @@ export const HomePage = () => {
               color: "var(--secondary-text)"
             }}
           >
-            Download the jobapptrack chrome extension by clicking here.
+            Download the jobapptrack chrome extension by clicking here. <br /> (Watch the above video for installation instructions)
           </a>
         </p>
       </div>
